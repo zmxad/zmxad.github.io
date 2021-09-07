@@ -1,0 +1,103 @@
+body{
+		font-family:"Arial","Microsoft YaHei","黑体","宋体","sans-serif";
+		-ms-user-select:none;
+}
+body a{
+cursor:pointer;text-decoration:none;
+}
+.aboluo-w-700{
+	width:440px;
+	height:275px;
+	margin:-550px 400px 0px 1070px;
+float:left;
+}
+.aboluo-leftdiv{
+	position:relative;
+	float:left;
+	width:70%;
+	height:100%;
+	border:2px solid; box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+}
+.aboluo-rightdiv{
+	width:20%;
+	height:100%;
+	background-image: linear-gradient(to right, #00c9ff , #92fe9d );
+	border:2px solid #6cd3fb;
+}
+.aboluo-tools{
+	position:relative;
+	line-height:10px;
+	height:4%;
+	padding:10px;
+
+}
+.aboluo-rilidiv{
+	position:relative;
+	width:100%;
+	height:90%;
+	padding-left:2%;
+	padding-right:2%;
+}
+
+.aboluo-calendar-select-year{
+	width:30%;float:left;}
+.aboluo-calendar-select-year select {
+	box-shadow: 3px 8px 15px rgba(32,160,255,.5);
+	width:100%;}
+.aboluo-calendar-month{
+	width:30%;float:left;margin-left:20px;line-height: 10px;}
+.aboluo-calendar-month a{
+	font-size:16px;text-align:center;color:#008080;text-decoration:none;}
+.aboluo-calendar-month select{
+	width:70%;}
+
+.aboluo-rilitable{
+	width:96%;text-align:center;hegiht:100%;padding-top:5px;}
+.aboluo-rilitable .aboluo-rilithead{
+	border-bottom: 1px solid #e3e4e6;}
+.aboluo-rilidiv .aboluo-rilitable tr{
+	width:100%;}
+.aboluo-rilidiv .aboluo-rilitable tr th{
+	width:14.2%;font-size:16px;}
+.aboluo-rilidiv .aboluo-rilitable tr td{
+	width:14.2%;font-size:20px;color:#000000;}
+.aboluo-rilidiv .aboluo-rilitable tr .aboluo-currToday{
+background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);color:#FFFFFF;}
+.aboluo-rilidiv .aboluo-rilitable tr .aboluo-tdcurrToday{
+background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);color:#FFFFFF;}
+.aboluo-rilidiv .aboluo-rilitable tr td a{
+	font-size:24px;
+	background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+	-webkit-background-clip: text;
+	color: transparent;
+	display:block;
+	margin:auto;
+	position:relative;}
+.aboluo-rilidiv .aboluo-rilitable .aboluo-td-a-ban{
+	font-size:13px;position:absolute;text-align:left;line-height:14px;text-indent:1px;width:15px;display:block;background:#969799;height:15px;color:#fff;overflow:hidden;top:0px;left:0px;}
+.aboluo-rilidiv .aboluo-rilitable .aboluo-td-a-xiu{
+	font-size:13px;position:absolute;text-align:left;line-height:14px;text-indent:1px;width:15px;display:block;background:#f43;height:15px;color:#fff;overflow:hidden;top:0px;left:0px;}
+.aboluo-rilidiv .aboluo-rilitable tr td a:hover{
+	border:3px solid #FFBB00;cursor:pointer;}
+.aboluo-rilidiv .aboluo-rilitable tr td .aboluo-aclick{
+	background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+	-webkit-background-clip: text;
+	color: transparent;}
+.aboluo-rilidiv .aboluo-rilitable .aboluo-rilitbody .aboluo-pervMonthDays{
+	color:#BFBFC5;
+}
+.aboluo-rilidiv .aboluo-rilitable .aboluo-rilitbody .aboluo-nextMonthDays{
+	color:#BFBFC5;
+}
+.aboluo-rightdiv p{ 
+	color:#FFFFFF;margin:10px auto;
+}
+.aboluo-rightdiv .aboluo-xssj span{ 
+	margin-left:5px;
+}
+.aboluo-rightdiv .aboluo-currday{
+	width:70%;height:20%;margin:0px 8px;text-align:center;background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+	-webkit-background-clip: text;
+	color: transparent;font-size:50px;
+}
+/* 代码整理：懒人之家 www.lanrenzhijia.com */

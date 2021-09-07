@@ -1,0 +1,536 @@
+* {box-sizing: border-box;}
+div.search {padding: 158px 0}
+form {
+  position: relative;
+  width:402px;
+  margin: 5px auto;
+}
+body {
+	margin:0;
+	padding:0;
+    cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur), auto;
+}
+
+.d1 input {
+  font-family: 幼圆, serif;
+	font-size: 20px;
+  width: 100%;
+  height: 54px;
+  padding-left: 10px;
+  border: 2px solid #f3ff8b;
+  border-radius: 6px;
+  outline: none;
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+	color : #828282;
+
+}
+/*按钮*/
+.d1 button {
+  position: absolute;
+  top: -1px;
+  right: -48px;
+  width: 58px;
+  height: 55px;
+  border: none;
+background-image: linear-gradient(to right, #00c9ff , #92fe9d );
+  border-radius: 4px 4px 4px 4px;
+  cursor: pointer;
+}
+.d1 button:before {
+  content: "\f002";
+	font-family: FontAwesome, serif;
+  font-size: 16px;
+  color: #db9f22;
+}
+
+@media only screen and (min-width:300px) and (max-width:640px) {
+
+
+	.pc-title {
+	display:none;
+}
+.bg {
+	background:url("../images/mobile/bg.png")no-repeat top center;
+	height:736px;
+}
+.bg .mobile-title {
+	text-align:left;
+}
+.bg .mobile-title img {
+	width:50px;
+	margin:10px;
+}
+.bg .mobile-title .bottom {
+	position:relative;
+	bottom:-150px;
+	text-align:center;
+}
+.bg .mobile-title.font {
+	font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+	color:#fff;
+	font-size:58px;
+	text-align:center;
+	margin-top:150px;
+	font-weight:bold;
+}
+.bg.mobile-title.font1 {
+	font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+	color:#fff;
+	font-size:20px;
+	text-align:center;
+	margin-top:0px;
+}
+.bg.mobile-title.form {
+	font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+	position:absolute;
+	left:0;
+	top:0;
+	height:736px;
+	background-color:rgba(255,255,255,1);
+	width:0px;
+	opacity:0;
+	transition:0.5s;
+}
+.bg .mobile-title .form:hover {
+	opacity:1;
+	width:150px;
+}
+.bg .mobile-title ul {
+	list-style-type:none;
+}
+.bg .mobile-title li {
+	margin:30px;
+}
+.bg .mobile-title a {
+	color:#000;
+	text-decoration:none;
+}
+.bg .mobile-title img:hover~.from {
+	opacity:1;
+	width:150px;
+}
+/*内容div的手机端*/
+     .content .introduction {
+	background-color:#fff;
+	text-align:center;
+	color:rgba(0,0,0,0.8);
+	font-size:28px;
+	margin:50px;
+}
+.content .line-green {
+	background-color:rgba(0,141,0,0.747);
+	width:100px;
+	height:3px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.content .introduction .text {
+	color:#a1a1a1;
+	font-size:15px;
+}
+.content .introduction .text .lable {
+	margin-top:50px;
+	display:flex;
+	justify-content:space-around;
+}
+.content .introduction .text .lable .list {
+	background-color:#eee;
+	font-size:18px;
+	width:70px;
+	height:40px;
+	line-height:40px;
+	color:#a1a1a1;
+}
+business {
+	/* 业务区域的css*/
+         	text-align:center;
+	color:rgba(0,0,0,0.8);
+	font-size:28px;
+	margin:50px;
+}
+.bottom-title {
+	background-color:rgba(0,0,0,0.8);
+	width:100%;
+	height:600px;
+}
+.bottom-title .vx {
+	display:flex;
+}
+.bottom-title .vx .text {
+	text-align:center;
+	color:#fff;
+	position:relative;
+	top:50px;
+}
+.bottom-title .vx img {
+	width:150px;
+	margin:25px;
+}
+.bottom-title .prompt {
+	margin:0 auto;
+	border:3px dashed red;
+	width:80%;
+}
+.bottom-title .prompt .caption {
+	color:yellow;
+	font-size:22px;
+	font-weight:bold;
+	margin:10px;
+}
+.bottom-title .prompt .text {
+	color:#fff;
+	font-size:16px;
+	margin:10px;
+}
+.job {
+	margin:0 auto;
+}
+.job .yw-item {
+	margin:0 auto;
+	width:250px;
+	height:500px;
+	text-align:center;
+	border-radius:15px;
+	box-shadow:4px 4px 8px rgba(0,0,0,0.5);
+	background:linear-gradient(to bottom right,#0d7cb4,#e477d2);
+	color:transparent;
+	margin-top:20px;
+}
+.job .yw-item .title {
+	height:150px;
+	color:white;
+}
+.job .yw-item .title .font {
+	padding-top:35px;
+	font-weight:bold;
+	font-size:45px;
+}
+.job .yw-item .title .job-item {
+	padding-top:10px;
+}
+.job .yw-item .content-item {
+	height:200px;
+	margin-top:70px;
+	color:rgb(230,230,230);
+	display:flex;
+	flex-direction:column;
+	font-size:16px;
+	justify-content:space-between;
+}
+.job .yw-item .call-me {
+	height:35px;
+	width:60%;
+	margin:25px auto 0 auto;
+	border-radius:50px;
+	background-color:#546acf;
+	font-size:18px;
+	transition:1s;
+}
+.job .yw-item .call-me a {
+	line-height:35px;
+	text-decoration:none;
+	color:white;
+}
+}
+@media  only screen and (min-width:640px) {
+	.mobile-title {
+		display: none;
+	}
+
+	.form {
+		display: none;
+	}
+
+	.bg {
+		background: url("../images/mobile/bg.png") no-repeat top center;
+		height: 750px;
+		background-size: cover;
+	}
+
+	.bg .pc-title .title a {
+		color: #eee;
+		text-decoration: none;
+		font-size: 20px;
+	}
+
+	.bg .pc-title .title ul {
+		list-style-type: none;
+		display: flex;
+		text-align: center;
+		justify-content: flex-end;
+		margin: 0;
+	}
+	.bg .pc-title .title ul iframe {
+
+		margin-left: -2400px;
+		margin-top: 35px;
+	}
+
+	.bg .pc-title .title ul li {
+				font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+		width: 100px;
+		height: 40px;
+		line-height: 40px;
+		margin-left: 20px;
+		margin-right: 40px;
+		margin-top: -15px;
+	}
+
+	.bg .pc-title .title ul li:hover {
+		background-color: rgba(255, 255, 255, 0.5);
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.bg .pc-title .font {
+		font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+		color: #fff;
+		font-size: 58px;
+		text-align: center;
+		font-weight: bold;
+		position: relative;
+		top: 120px;
+		transition: 0.5s;
+
+
+	}
+
+	.bg .pc-title .font:hover {
+		font-size: 78px;
+	}
+
+	.bg .pc-title .font1 {
+				font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+		font-size: 20px;
+		text-align: center;
+		position: relative;
+		top: -43px;
+		background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
+
+	.bg .pc-title .bottom {
+		position: relative;
+		bottom: -17px;
+		text-align: center;
+	}
+
+	.bg .pc-title .bottom img {
+		width: 96px;
+	}
+
+	.content .introduction {
+
+		text-align: center;
+
+		font-size: 28px;
+		margin: 50px;
+	}
+
+	.content .line-green {
+background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
+		width: 100px;
+		height: 3px;
+		margin: 0 auto;
+		margin-top: 10px;
+	}
+
+	.content .introduction .text {
+		color: #a1a1a1;
+		font-size: 15px;
+
+	}
+
+	.content .introduction .text .lable {
+		margin-top: 50px;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.content .introduction .text .lable .list {
+
+		font-size: 18px;
+		width: 270px;
+		height: 40px;
+		line-height: 40px;
+background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
+	}
+
+	.business {
+		/*业务区域的CSS*/
+		text-align: center;
+		color: rgba(0, 0, 0, 0.8);
+		font-size: 28px;
+		margin: 50px;
+	}
+
+	.bottom-title {
+		/*底部标题*/
+		background-color: rgba(0, 0, 0, 0.8);
+		width: 100%;
+		height: 300px;
+	}
+
+	.bottom-title .vx {
+		display: flex;
+	}
+
+	.bottom-title .vx .text {
+		text-align: center;
+		color: #fff;
+		position: relative;
+		top: 100px;
+	}
+
+	.bottom-title .vx img {
+		width: 250px;
+		margin: 25px;
+	}
+
+	.bottom-title .prompt {
+		margin: 0 auto;
+		border: 3px dashed red;
+		width: 400px;
+		position: relative;
+		top: -270px;
+		left: 200px;
+	}
+
+	.bottom-title .prompt .caption {
+		color: yellow;
+		font-size: 22px;
+		font-weight: bold;
+		margin: 10px;
+	}
+
+	.bottom-title .prompt .text {
+		color: #fff;
+		font-size: 16px;
+		margin: 10px;
+	}
+
+	.job {
+		margin: 100px auto;
+		display: flex;
+		justify-content: space-around;
+		z-index: 99999;
+	}
+
+	.job .yw-item {
+		margin: 10px;
+		width: 300px;
+		height: 500px;
+		text-align: center;
+		border-radius: 15px;
+		box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+		transition: all 0.5s linear;
+		background: linear-gradient(to bottom right, #0d7cb4, #e477d2);
+		color: transparent;
+	}
+
+	.job .yw-item:hover {
+		transform: translate(-20px);
+	}
+
+	.job .yw-item .title {
+		height: 150px;
+background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
+	.job .yw-item .title .font {
+		padding-top: 36px;
+		font-weight: bold;
+		font-size: 45px;
+	}
+
+	.job .yw-item .title .job-item {
+		padding-top: 10px;
+	}
+
+	.job .yw-item .content-item {
+		height: 200px;
+		margin-top: 70px;
+background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+		-webkit-background-clip: text;
+		color: transparent;
+		display: flex;
+		font-size: 16px;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.job .yw-item .call-me {
+		height: 35px;
+		width: 60%;
+		margin: 25px auto 0 auto;
+		border-radius: 50px;
+		font-size: 18px;
+		background-color: #546acf;
+	}
+
+	.job .yw-item .call-me a {
+		line-height: 35px;
+		text-decoration: none;
+		color: white;
+	}
+
+
+	.bottom-title .footer {
+		width:100%;
+	height:70px;
+	background-color:#CCC;
+	padding-top:151px;
+	margin-top:-228px;
+	}
+	.bottom-title .footer p {
+		text-align:center;
+	font-size:16px;
+	color:#EFEFEF;
+	margin-top:-165px;
+	padding-top:101px;
+	}
+
+
+	p::selection{
+            background:pink;
+            color:#fff;
+        }
+	span {
+        background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+}
+	 span2 {
+        background-image: linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+	 span3 {
+        background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+	 span4 {
+        background-image: linear-gradient(to right, #ed4264 , #ffedbc );
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+	 span5 {
+		 background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+		 -webkit-background-clip: text;
+		 color: transparent;
+	 }
+	 span6 {
+	background-image: linear-gradient(-225deg, #7742B2 0%, #F180FF 52%, #FD8BD9 100%);
+		 -webkit-background-clip: text;
+		 color: transparent;
+	 }
+	span7 {
+		background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+}

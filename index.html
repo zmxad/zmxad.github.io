@@ -1,1 +1,719 @@
-1
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+      <link href="css/theme.min.css" type="text/css" rel="stylesheet" />
+        <link href="css/style.css" type="text/css" rel="stylesheet" />
+        <base target="_blank" />
+        <link rel="stylesheet" type="text/css" href="assets/waifu.min.css?v=1.4.2"/>
+        <meta charset="UTF-8">
+        <title>莫斯科没有眼泪</title>
+	<link rel="stylesheet" href="css/style.css">
+        <link rel="icon"  href="images/happy.png">
+        <link rel="stylesheet" href="css/weather.css" type="text/css">
+         <style type="text/css">
+
+		.weather {
+            width: 131vh; height: 180vh; position: fixed;
+        }
+
+
+	</style>
+        <link rel="stylesheet" href="css/index1.css">
+        <link rel="stylesheet" href="css/service.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	    <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery.min.js"></script>
+            <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+                    window.onload = function() {
+        //定义点击出现文字类
+        function ClickFrontShow() {
+            //定义所需文字和颜色
+            this.fron = ["富强", "民主", "文明","❤", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"];
+            this.colo = ['#a786f6', '#0cfade', 'red', '#3eff08', 'rgba(229,11,193,0.82)', '#fcc5e4', '#b49fda'];
+            //获取body元素
+            this.elBody = document.getElementsByTagName("body")[0];
+            //初始化randomNum
+            this.randomNum = null;
+            //初始化字体inde
+            this.finde = 0;
+            //初始化className
+            this.cls = 0;
+        }
+
+        //定义初始化
+        ClickFrontShow.prototype.init = function(frontArray, colorArray) {
+            //自定义颜色和字体
+            this.fron = frontArray || this.fron;
+            this.colo = colorArray || this.colo;
+
+            this.listenMouse();
+        }
+
+        //创建文字
+        ClickFrontShow.prototype.createFront = function (classname) {
+            var self = this;
+            let ospan = document.createElement('span');
+            //设置样式
+            let cssText = "position:absolute; width: 40px; height: 20px; cursor: default; transform: translate(-50%,-50%); font-weight: bold; opacity: 1; z-index: 1000; transition: 1s;";
+            //随机字体和颜色
+            let randomFront = self.fron[self.finde];
+            let randomColor = self.colo[Math.round(Math.random()*(self.colo.length-1))];
+            //字体下标增1
+            self.finde = (self.finde+1) % self.fron.length;
+            //向body中添加元素
+            self.elBody.appendChild(ospan);
+            //绑定一个classname
+            ospan.className = String(classname);
+            //添加样式
+            ospan.style.cssText = cssText + "-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;"
+            ospan.style.color = randomColor;
+            ospan.innerHTML = randomFront;
+        }
+
+
+        //监听鼠标点击
+        ClickFrontShow.prototype.listenMouse = function() {
+            var self = this;
+
+            //鼠标点击事件
+            document.onclick = function(e) {
+                //避免classname值重复导致出现bug
+                if(self.cls === 20){
+                    self.cls = 0;
+                }else{
+                    self.cls += 1;
+                }
+                //创建文字
+                self.createFront(self.cls);
+                let el = document.getElementsByClassName(self.cls)[0];
+
+                //鼠标点击位置
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+
+                //过时改变
+                setTimeout(function() {
+                    el.style.opacity = 0;
+                    el.style.top = el.offsetTop - 100 + 'px';
+                }, 100);
+                //过时清除
+                setTimeout(function() {
+                    self.elBody.removeChild(el);
+                }, 2000);
+            }
+
+        }
+
+        //实例化
+        var frontShow = new ClickFrontShow();
+        //用户可在此传递参数，默认第一个参数是字体数组；
+        //第二个参数是颜色数组，必须是数组类型！
+        frontShow.init();
+    }
+     </script>
+
+</head>
+
+    <body>
+
+    <div class="bg">
+            <div class="pc-title">
+
+                <!--电脑端导航栏-->
+                <div class="title">
+
+                    <ul class="nav">
+                        <a href="index.html">
+                            <li><span3>首页</span3></li></a>
+                        <a href="service.html">
+                            <li><span3>服务/合作</span3></li></a>
+                        <a href="https://github.com/zmxad/zmxad.github.io">
+                            <li><span>Github</span></li></a>
+
+                        <!--<a href="index.html"><li>商品</li></a>-->
+		</ul>
+                </div>
+
+                <div class="font"><span2>
+                    <!--用来居中字体,不被强制居中-->'如叶深沉'</span2></div>
+                		<div class="search d1">
+		  <form  action="https://www.baidu.com/s">
+			  <input type="text"  name="wd" placeholder="搜索从这里开始...">
+		  <button type="submit"></button>
+		  </form>
+		</div>
+                <div class="weather snow"></div>
+
+                <div class="font1"> <span4>-----你一定是某個人翹首以盼的驚喜-----</span4>
+                    <span><br>@风吹内裤飘</span>
+                    <h2><script>
+                        Date.prototype.format=function (fmt) {
+                            var o = {
+                                "y+":this.getFullYear, //年
+                                "M+":this.getMonth() +1,//月
+                                "d+":this.getDate(),//日
+                                "h+":this.getHours(),//时
+                                "m+":this.getMinutes(),//分
+                                "s+":this.getSeconds()
+                            };
+                            if (/(y+)/.test(fmt)) fmt= fmt.replace(RegExp.$1,(this.getFullYear() +"").substr(4 - RegExp.$1.length));
+                            for (var k in o)
+                                if (new RegExp("("+ k +")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1)?(0[k]):(("00"+o[k]).substr((""+o[k]).length)));
+                            return fmt;
+                        }
+                        setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');",1000);
+                    </script>
+                        <div id="dateTime"></div></h2>
+                </div>
+                <div class="bottom">
+
+                    <a href="#content">
+                        <img src="images/mobile/bottom.png" alt=""></a>
+	    <!--箭头,链接到bontent的瞄点--></div>
+            </div>
+
+<!--            <div class="mobile-title">-->
+<!--                &lt;!&ndash;手机端导航栏&ndash;&gt;-->
+<!--                <img src="images/mobile/title1.png" alt="">-->
+<!--                <div class="font">-->
+<!--                    &lt;!&ndash;居中字体&ndash;&gt;'如叶深沉'</div>-->
+<!--                <div class="font1">-&#45;&#45;&#45;&#45;你一定是某個人翹首以盼的驚喜&#45;&#45;&#45;&#45;-->
+<!--                    <br>@风吹内裤飘-->
+<!--                </div>-->
+<!--                <div class="from">-->
+<!--                    &lt;!&ndash;根据点击导航栏后,from的div宽度和透明度缓慢增加,形成效果&ndash;&gt;-->
+<!--                    <ul>-->
+<!--                        <a href="index.html">-->
+<!--                            <li>首页</li></a>-->
+<!--                        <a href="service.html">-->
+<!--                            <li>服务/合作</li></a>-->
+<!--                        &lt;!&ndash;<a href="#"><li>商品</li></a>&ndash;&gt;</ul>-->
+
+<!--                </div>-->
+
+<!--                <div class="bottom">-->
+
+<!--                    <a href="#content">-->
+<!--                        <img src="images/mobile/bottom.png" alt=""></a>-->
+	    <!--箭头,链接到content的瞄点--></div>
+    
+                <div class="aboluo-w-700">
+        <div class="aboluo-leftdiv">
+        <div class="aboluo-tools">
+        <div class="aboluo-calendar-select-year"></div>
+        <div class="aboluo-calendar-month">
+        <a class="aboluo-month-a-perv" href="javascript:"></a>
+        <a class="aboluo-month-a-next" href="javascript:"></a>
+        </div>
+        </div>
+        <div class="aboluo-rilidiv">
+        <table class="aboluo-rilitable" cellspacing="0" cellpadding="0" >
+        <thead class="aboluo-rilithead">
+            <tr>
+                <th>一</td>
+                <th>二</td>
+                <th>三</td>
+                <th>四</td>
+                <th>五</td>
+                <th
+                        style="background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+                        -webkit-background-clip: text;
+                        color: transparent;
+                        ">六</td>
+                <th style="background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+                        -webkit-background-clip: text;
+                        color: transparent;">日</td>
+            </tr>
+        </thead>
+        </table>
+        </div>
+        </div>
+        <div class="aboluo-rightdiv">
+        <p class="aboluo-xssj"><p>
+        <p class="aboluo-currday"></p>
+        <p class="aboluo-ssjjr"></p>
+        <p class="aboluo-xsmx"></p>
+        </div>
+        </div>
+        <script src="js/jquery.js"></script>
+        <script src="js/lanren.js"></script>
+
+            </div>
+
+
+    <!--固定背景图-->
+        <div class="content">
+            <!--内容div-->
+            <div class="introduction" id=content>
+                <!--内容瞄点-->
+                <div class="caption">
+                    <!--标题头部-->
+                    <span5>关于我们</span5></div>
+                <div class="line-green"></div>
+                <!--绿色的线-->
+                <div class="text">
+                    <!--文本框内容,详细介绍-->
+                    <div class="lable">
+                        <!--灰色的框框,标签-->
+                        <div class="list"><span6>
+                            00后</span6></div>
+                        <div class="list"><span>
+                            程序员</span></div>
+                        <div class="list"><span6>
+                            我是你爹</span6></div></div>
+                   <p> <span7>            </span7></p>
+                    <p> <span7>我自己</span7></p>
+                    <p> <span7>我自己</span7></p>
+                    <p> <span7>我自己</span7></p>
+                    <p> <span7>我自己</span7></p>
+
+                </div>
+            </div>
+            <div class="business">
+                <!--业务介绍-->
+                <div class="caption"> <!--标题头部-->
+                    <span5>主营业务</span5></div>
+                <div class="line-green">
+                </div>
+                <!--绿色的线-->
+                <p>
+                </p>
+                <div class="job">
+                    <div class="yw-item">
+                        <div class="title">
+                            <div class="font">***</div>
+                            <div class="job-item">web制作</div>
+                        </div>
+                        <!--内容-->
+                        <div class="content-item">
+                            <div class="content">HTML5-CSS-js</div>
+                            <div class="content">课外作业-学科大作业</div>
+                            <div class="content">HTML5-CSS-java</div>
+                            <div class="content">javaweb-PHP</div>
+                        </div>
+                        <div class="call-me">
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=3379863588&site=qq&menu=yes">联系你爹</a></div>
+                    </div>
+                    <div class="yw-item">
+                        <div class="title">
+                            <div class="font">***</div>
+                            <div class="job-item">Photoshop</div>
+                        </div>
+                        <!--内容-->
+
+                        <div class="content-item">
+                            <div class="content">
+                                图片处理美化-海报制作</div>
+                            <div class="content">
+                                淘宝图片修整</div>
+                            <div class="content">
+                                物体抠图</div>
+                            <div class="content">
+                                ps课程大作业-课后作业</div>
+                        </div>
+                        <!--内容-->
+                        <div class="call-me">
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=3379863588&site=qq&menu=yes">联系你爹</a></div>
+                    </div>
+                    <div class="yw-item">
+                        <div class="title">
+                            <div class="font">***</div>
+                            <div class="job-item">视频剪辑</div></div>
+                        <!--内容-->
+                        <div class="content-item">
+                            <div class="content">不制作原创视频(需要提供原素材)</div>
+                            <div class="content">游戏高光剪辑</div>
+                            <div class="content">VLOG剪辑合成</div>
+                            <div class="content">pr作业</div></div>
+                        <!--内容-->
+                        <div class="call-me">
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=3379863588&site=qq&menu=yes">联系你爹</a></div>
+                    </div>
+                    <div class="yw-item">
+                        <div class="title">
+                            <div class="font">***</div>
+                            <div class="job-item">PPT制作</div></div>
+<!--                内容-->
+                        <div class="content-item">
+                            <div class="content">需要您提供明确的主题和素材
+                            </div>
+                            <div class="content">辩论,报告,作业
+                            </div>
+                            <div class="content">介绍,课堂介绍讲题
+                            </div>
+                            <div class="content">ppt汇报</div></div>
+
+<!--                    内容-->
+                            <div class="call-me">
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=3379863588&site=qq&menu=yes">联系你爹</a></div>
+                        </div>
+                    </div>
+                    <div class="job">
+                        <div class="yw-item">
+                            <div class="title">
+                                <div class="font">***</div>
+                                <div class="job-item">网课代刷</div></div>
+<!--                    内容-->
+                            <div class="content-item">
+                                <div class="content">超新星学习通</div>
+                                <div class="content">军事理论</div>
+                                <div class="content">新生必看网课</div>
+                                <div class="content">创业理论</div></div>
+<!--                    内容-->
+                            <div class="call-me">
+                                <a href="http://wpa.qq.com/msgrd?v=3&uin=3379863588&site=qq&menu=yes">联系你爹</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-title">
+<!--        底部标题-->
+                <div class="vx">
+                    <img src="images/mobile/vx.png" alt="">
+                    <div class="text">
+                        <<<<br> 有需要的业务或者咨询
+                        <br>请扫描旁边的二维码
+                        <br>并备注来意</div></div>
+                <div class="prompt">
+                    <div class="caption">提示!</div>
+                    <div class="text">请在汇款或者结尾款时确认对方身份是否为我本人，认证统一微信号:
+                        <b>i--0401</b>
+                        <br>本爹支持完工付款，并非文件到手后付款，本爹完工作品后会录制视频和截图询问甲方是否满意。
+                        <p></p>
+                        <b>警告！---请勿无理、胡乱、并无不满却想再做一份看看哪样好，这只会延期您作品完成的时间，您要求重做或者大量修改，您的订单会向后推移</b>
+
+                        </div></div>
+                <div class="footer">
+                    <p class="p">版权所有&@你爹</p>
+                    <p> 最终解释权归你爹我所有</p>
+                    <p >|地址：北京市xxx区xxx路x号 |邮编：100000 |反馈意见：3379863588@qq.com |京ICP备05065075号-1 |京公网安备 110402430047 号</p></div>
+                </div>
+         <!-- waifu-tips.js 依赖 JQuery 库 -->
+    <script src="assets/jquery.min.js?v=3.3.1"></script>
+
+    <!-- 实现拖动效果，需引入 JQuery UI -->
+    <script src="assets/jquery-ui.min.js?v=1.12.1"></script>
+
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+
+    <script src="assets/waifu-tips.min.js?v=1.4.2"></script>
+    <script src="assets/live2d.min.js?v=1.0.5"></script>
+    <script type="text/javascript">
+        /* 可直接修改部分参数 */
+        live2d_settings['modelId'] = 1;                  // 默认模型 ID
+        live2d_settings['modelTexturesId'] = 87;         // 默认材质 ID
+        live2d_settings['modelStorage'] = false;         // 不储存模型 ID
+        live2d_settings['canCloseLive2d'] = false;       // 隐藏 关闭看板娘 按钮
+        live2d_settings['canTurnToHomePage'] = false;    // 隐藏 返回首页 按钮
+        live2d_settings['waifuSize'] = '500x395';        // 看板娘大小
+        live2d_settings['waifuTipsSize'] = '350x90';    // 提示框大小
+        live2d_settings['waifuFontSize'] = '30px';       // 提示框字体
+        live2d_settings['waifuToolFont'] = '36px';       // 工具栏字体
+        live2d_settings['waifuToolLine'] = '50px';       // 工具栏行高
+        live2d_settings['waifuToolTop'] = '-60px';       // 工具栏顶部边距
+        live2d_settings['waifuDraggable'] = 'axis-x';    // 拖拽样式
+        /* 在 initModel 前添加 */
+        initModel("assets/waifu-tips.json?v=1.4.2")
+    </script>
+
+    <!-终于做出了传说中的 音乐组件-->
+        <div id="player" class="aplayer"></div>
+        <link href="css/APlayer.min_v1.10.1.css" rel="stylesheet">
+        <script src="js/APlayer.min_v1.10.1.js"></script>
+        <script type="text/javascript">
+            var ap =new APlayer({
+                element:document.getElementById('player'),
+                narrow:false,
+                autoplay :true,   /*是否自动播放*/
+                showlrc:true,  /*是否开启歌词,默认false(为true时musics集合中需要传入lrc字段)*/
+                fixed:1, /*是否固定在左下角,1为true*/
+                theme:'rgba(35,236,181,0.76)', /*插件背景颜色*/
+                music:[
+                    {
+                        title:"再见，昨天-《昨日青空》-牛奶@咖啡",
+                        author:"牛奶咖啡",
+                        url:'https://mp32.9ku.com/upload/128/2018/06/08/880196.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/49/25/2241776673.jpg",
+                        lrc:'[00:00.51]再见，昨天-(电影《昨日青空》青春毕业曲) - 牛奶咖啡 [00:01.77]词：富妍&王竞 [00:02.00]曲：格非 [00:02.13]编曲：格非 [00:02.30]制作人：格非 [00:02.49]吉他：梁晓雪 [00:02.69]和声编写：格非 [00:02.92]和声：富妍 [00:06.89]再见昨天 [00:09.44]来不及说的告别 [00:12.64]留在了某一天 [00:15.82]是最大的亏欠 [00:19.08]和昨天说再见 [00:22.31]挥一挥手说再见 [00:25.48]十七岁那一年 [00:28.77]一转眼从指间溜走 [00:32.50]消失不见 [01:00.67]原来校服是唯一纪念 [01:06.90]毕业册是唯一的照片 [01:13.35]同学会是唯一碰面 [01:19.89]我们已经越走越远 [01:24.66]天真以为能永远 [01:29.23]陪伴的人 [01:31.60]后来也会 [01:34.04]突然不见 [01:37.41]谁知时光匆匆 [01:41.85]回不去从前 [01:44.57]还来不及感谢 [01:47.60]多想对你大声说 [01:54.01]再见昨天 [01:56.52]无论走了有多远 [01:59.60]毕业的那一天 [02:02.81]是思念的起点 [02:06.12]和昨天说再见 [02:09.28]挥一挥手说再见 [02:12.54]谢谢你的出现 [02:15.77]是似水流年最美最好的遇见 [02:47.57]如果放学路没有终点 [02:53.95]篮球赛也不会完结 [03:00.41]躲雨的屋檐不会晴天 [03:06.89]我都想了很多遍 [03:12.44]如果那个夏天 [03:15.91]更漫长一点 [03:18.62]我们是否能好好告别 [03:25.13]说喜欢你的勇气 [03:28.80]总还差一些 [03:31.60]如果说了再见 [03:34.51]是否能真的再见 [03:41.03]再见昨天 [03:43.37]无论走了有多远 [03:46.64]毕业的那一天 [03:49.84]是思念的起点 [03:53.17]和昨天说再见 [03:56.29]挥一挥手说再见 [03:59.55]谢谢你的出现 [04:02.83]是似水流年最美遇见 [04:07.07]再见昨天 [04:09.33]虽然已渐行渐远 [04:12.52]我常常会想念 [04:15.81]有你在的夏天 [04:19.04]和昨天说再见 [04:22.24]去更辽阔的世界 [04:25.50]我期待着明天 [04:28.72]在青空下等你再一次的出现'
+                    },
+                    {
+                        title:"来不及勇敢-《昨日青空》电影青春告白曲 - 周深",
+                        author:"周深",
+                        url:'https://sharefs.ali.kugou.com/202108121140/e8c2758754825a9e73aa6921954ea131/KGTX/CLTX001/b106b6e26f2118f4cae704b90fe912e4.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/39/94/922476800.jpg",
+                        lrc:'[00:00.42]来不及勇敢-(电影《昨日青空》插曲) - 周深 [00:00.65]作词：樊帆&金灿灿 [00:00.86]作曲：钱雷 [00:01.06]编曲：钱雷 [00:01.27]Bass：李卓 [00:01.48]吉他：牛子健 [00:01.67]弦乐编写：胡静成 [00:01.88]弦乐团：李朋 国际首席爱乐乐团 [00:02.05]弦乐录音：任允翔/九紫天诚 [00:02.22]录音师：钱雷 [00:02.42]混音：崔录 [00:02.58]制作人：钱雷 [00:02.79]录音棚：那英工作室 [00:34.84]自行车向前转动着时光 [00:39.66]在后座遗落了谁目光 [00:44.67]不曾想你穿着校服模样 [00:49.73]也从我生活离场 [00:54.65]风吹过吹旧了那条小巷 [00:59.65]到尽头追不到你余光 [01:04.71]我的梦只有你懂得欣赏 [01:10.00]那是最美的时光 [01:14.69]都是我还来不及学会勇敢 [01:20.40]让你一个人孤单 [01:25.26]我害怕青春就此离散 [01:29.21]让遗憾成遗憾 [01:31.62]你我从此无关 [01:38.43]（遗憾是片青春的书签 夹在了最痛的那一页） [02:25.62]那个夏天像秋天的落叶 [02:30.63]假装灿烂不害怕离别 [02:35.69]一场大雨湿透整个世界 [02:40.61]流逝我们的一切 [02:45.71]都是我还来不及学会勇敢 [02:50.85]让你一个人走散 [02:55.96]我多想能像昨天一样 [03:00.11]任凭青春荒唐 [03:02.64]你不要再悲伤 [03:06.02]都是我还来不及学会勇敢 [03:11.65]恨这一生太短暂 [03:18.15]我愿意用所有去交换 [03:20.30]换为时还不晚 [03:22.78]换余生不孤单 [03:29.12]啦啦啦'
+                    },
+                    {
+                    title:"不为谁而作的歌 - 林俊杰",
+                    author:"林俊杰",
+                    url:'http://freetyst.nf.migu.cn/public/product9th/product43/2021/04/0813/2021%E5%B9%B404%E6%9C%8808%E6%97%A511%E7%82%B948%E5%88%86%E7%B4%A7%E6%80%A5%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5%E5%8D%8E%E7%BA%B355%E9%A6%96/%E5%85%A8%E6%9B%B2%E8%AF%95%E5%90%AC/Mp3_64_22_16/6005759Z0RX133716.mp3?channelid=02&msisdn=fe717775-ba8f-42d0-a4d9-0ccc9191e72c&Tim=1628485866010&Key=4215e5b6cd321a2d',
+                    pic:'http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/3a0714a8770ca550e76aabcb1c48fd01/0fde67c965b80a50e47dd6544f0d1643',
+                    lrc:"[00:03.00]歌曲名 不为谁而作的歌 [00:05.00]歌手名 林俊杰 [00:07.00]作词：林秋离 [00:10.00]作曲：林俊杰 [00:27.46]原谅我这一首 [00:30.80]不为谁而作的歌 [00:34.04]感觉上仿佛窗外的夜色 [00:40.73]曾经有那一刻 [00:44.02]回头竟然认不得 [00:47.76]需要从记忆再摸索的人 [00:54.69]和他们关心的的地方 [01:01.33]和那些走过的请等一等 [01:10.46]梦为努力浇了水 [01:13.75]爱在背后往前推 [01:17.09]当我抬起头才发觉 [01:21.08]我是不是忘了谁 [01:23.73]累到整夜不能睡 [01:26.97]夜色哪里都是美 [01:30.26]一定有个人 [01:32.41]她躲过避过闪过瞒过 [01:35.25]她是谁 [01:41.59]她是谁 [01:50.27]原谅我这一首 [01:53.56]不为谁而作的歌 [01:56.80]感觉上仿佛窗外的夜色 [02:03.44]曾经有那一刻回头 [02:07.23]竟然认不得 [02:10.52]需要从记忆再摸索的人 [02:17.36]和他们关心的的地方 [02:23.89]和那些走过的 [02:29.93]梦为努力浇了水 [02:33.12]爱在背后往前推 [02:36.41]当我抬起头才发觉 [02:40.55]我是不是忘了谁 [02:43.10]累到整夜不能睡 [02:46.44]夜色哪里都是美 [02:49.13]一定有个人她 [02:52.23]躲过避过闪过瞒过 [02:54.82]她是谁 [03:00.91]她是谁 [03:09.49]也许在真实面对自己才不顾一切 [03:16.12]去探究当初我害怕面对 [03:24.45]梦为努力浇了水 [03:27.60]爱在背后往前推 [03:30.94]当我抬起头才发觉 [03:35.13]我是不是忘了谁 [03:37.77]累到整夜不能睡 [03:40.72]夜色哪里都是美 [03:44.36]一定有个她 [03:46.80]躲过避过闪过瞒过 [03:49.40]她是谁 [03:55.73]她是谁 [04:09.05]她是谁"
+                },
+                {
+                    title:'我还想她',
+                    author:"林俊杰",
+                    url:'http://freetyst.nf.migu.cn/public/product02/2017/08/%E9%A2%84%E7%94%9F%E6%95%88%E5%A5%A5%E8%BF%90%E7%AC%AC12%E6%89%B9600586/%E6%AD%8C%E6%9B%B2%E4%B8%8B%E8%BD%BD/MP3_320_16_Stero/%E6%88%91%E8%BF%98%E6%83%B3%E4%BB%96-%E6%9E%97%E4%BF%8A%E6%9D%B0.mp3?channelid=02&msisdn=ad756ff7-612d-4b0c-bb80-ad016c4ca661&Tim=1628513590734&Key=e64bd079ada2e94b',
+                    pic:'http://d.musicapp.migu.cn/prod/file-service/file-down/b1899d500dda5db2da11df3efc89cba6/d67c01e28717677ea00390ac2933dea1/37fc18b1b69862ab5544e5b82aafbd6f',
+                    lrc:'[00:00.10]歌曲名 我还想她 [00:00.20]歌手名 林俊杰 [00:00.30]作词：邢增华 [00:00.40]作曲：林俊杰 [00:25.25]泪水将我淹没到底谁该难过 [00:33.18]究竟是谁放掉这段感情 [00:40.16]我才终于明白办不到的承诺 [00:45.04]就成了枷锁 [00:48.84]现实中幸福永远缺货 [00:55.47]请告诉她我不爱她 [00:59.61]笑着难过自我惩罚 [01:03.75]想终止这一切挣扎 [01:07.59]横了心说真心谎话 [01:11.58]别告诉她我还想她 [01:15.82]恨总比爱容易放下 [01:19.72]当泪水堵住了胸口 [01:23.56]就让沉默代替所有回答 [01:44.07]我才终于明白办不到的承诺 [01:49.01]就成了枷锁 [01:52.95]现实中幸福永远缺货 [01:59.54]请告诉她我不爱她 [02:03.68]笑着难过自我惩罚 [02:07.82]想终止这一切挣扎 [02:11.61]横了心说真心谎话 [02:15.65]别告诉她我还想她 [02:19.89]恨总比爱容易放下 [02:23.83]当泪水堵住了胸口 [02:27.82]就让沉默代替所有回答 [02:34.46]我不爱我不痛我不懂 [02:38.40]我的心早已掏空 [02:42.49]真心话言不由衷 [02:48.77]请告诉她我不爱她 [02:52.51]笑着难过自我惩罚 [02:56.71]想终止这一切挣扎 [03:00.55]横了心说真心谎话 [03:04.59]别告诉她我还想她 [03:08.78]恨总比爱容易放下 [03:12.72]当泪水堵住了胸口 [03:16.61]就让沉默代替所有回答 [03:25.14]别告诉她我还想她 [03:28.98]就让沉默代替所有回答'
+                },
+                    {
+                        title:'美人鱼 - 林俊杰',
+                        author:'林俊杰',
+                        url:'http://freetyst.nf.migu.cn/public/productBe/productB01/2019/08/2717/2007%E5%B9%B405%E6%9C%8815%E6%97%A5%E6%B5%B7%E8%9D%B6%E5%94%B1%E7%89%87/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60058600096.mp3?channelid=02&msisdn=662d1f3b-8467-4008-9c5d-958bde1316a8&Tim=1628521586759&Key=c7ef4c0d2e14a602',
+                        pic:'http://d.musicapp.migu.cn/prod/file-service/file-down/b1899d500dda5db2da11df3efc89cba6/5513f311e612912ed77276103466308a/21214bce92c1774b72d2d7491b12395d',
+                        lrc:'[00:01.00]歌曲名 美人鱼 [00:02.00]歌手名 林俊杰 [00:03.00]作词：简胜+林秋离 [00:04.00]作曲：林俊杰 [00:26.66]我在沙滩划个圆圈 [00:29.18]属于我俩安逸世界 [00:31.68]不用和别人连线 [00:36.80]我不管你来自深渊 [00:39.15]也不在乎身上鳞片 [00:41.76]爱情能超越一切 [00:46.27]只要你在我身边 [00:48.08]所有蜚语流言 [00:49.33]完全视而不见 [00:51.18]请不要匆匆一面 [00:53.06]一转身就沉入海平线 [00:59.06]传说中你为爱甘心被搁浅 [01:03.85]我也可以为你潜入海里面 [01:08.53]怎么忍心断绝 [01:11.15]忘记我不变的誓言 [01:14.66]我眼泪断了线 [01:19.02]现实里有了我对你的眷恋 [01:24.14]我愿意化作雕像等你出现 [01:28.75]再见再也不见 [01:31.29]心碎了飘荡在海边 [01:34.84]你抬头就看见 [02:00.09]我在沙滩划个圆圈 [02:02.55]属于我俩安逸世界 [02:05.10]不用和别人连线 [02:10.17]我不管你来自深渊 [02:12.64]也不在乎身上鳞片 [02:15.19]爱情能超越一切 [02:19.66]只要你在我身边 [02:21.97]所有蜚语流言 [02:23.07]完全视而不见 [02:24.68]请不要匆匆一面 [02:26.68]一转身就沉入海平线 [02:32.41]传说中你为爱甘心被搁浅 [02:36.97]我也可以为你潜入海里面 [02:41.99]怎么忍心断绝 [02:44.53]忘记我不变的誓言 [02:48.14]我眼泪断了线 [02:52.48]现实里有了我对你的眷恋 [02:57.71]我愿意化作雕像等你出现 [03:02.22]再见再也不见 [03:04.70]心碎了飘荡在海边 [03:08.20]你抬头就看见 [03:12.81]传说中你为爱甘心被搁浅 [03:17.58]我也可以为你潜入海里面 [03:22.39]怎么忍心断绝 [03:24.97]忘记我不变的誓言 [03:28.43]我眼泪断了线 [03:32.89]现实里有了我对你的眷恋 [03:38.23]我愿意化作雕像等你出现 [03:42.58]再见再也不见 [03:45.15]心碎了飘荡在海边 [03:48.78]你抬头就看见 [03:51.43]你抬头就看见 [03:52.68]你你抬头就看见 [03:57.72]你你抬头就看见'
+                    },
+
+                        {
+                        title:'曹操 - 林俊杰',
+                        author:'林俊杰',
+                        url:'http://freetyst.nf.migu.cn/public/product10th/productB36/2021/08/0303/2007%E5%B9%B407%E6%9C%8809%E6%97%A5%E6%B5%B7%E8%9D%B6%E5%94%B1%E7%89%87/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60058600363032226.mp3?channelid=02&msisdn=36abe23a-c7a3-4f82-a4bd-c147d5c5de72&Tim=1628521632354&Key=a23fdcae2ed516a3',
+                        pic:'http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2cb8ef76634e3201349f3e5942dad698/65c5d09fc1f9e8ec761d9ce1b72d30e8',
+                        lrc:'[00:01.00]歌曲名 曹操(深情版) [00:02.00]歌手名 林俊杰 [00:03.00]作词：林秋离 [00:04.00]作曲：林俊杰 [00:05.00]编曲：Kenn C [00:06.00]制作人：吴剑泓 [00:27.40]不是英雄不读三国 [00:33.79]若是英雄 [00:36.23]怎么能不懂寂寞 [00:39.97]独自走下长坂坡 [00:41.87]月光太温柔 [00:43.57]曹操不啰唆 [00:45.21]一心要拿荆州 [00:47.11]用阴谋阳谋 [00:48.80]明说暗夺的摸 [00:53.84]东汉末年分三国 [00:56.94]烽火连天不休 [01:00.43]儿女情长被乱世左右 [01:05.27]谁来煮酒 [01:07.06]尔虞我诈是三国 [01:10.16]说不清对与错 [01:13.80]纷纷扰扰千百年以后 [01:18.79]一切又从头 [01:33.95]不是英雄不读三国 [01:40.49]若是英雄 [01:43.03]怎么能不懂寂寞 [01:46.57]独自走下长坂坡 [01:48.57]月光太温柔 [01:50.22]曹操不啰唆 [01:51.96]一心要拿荆州 [01:53.81]用阴谋阳谋 [01:55.60]明说暗夺的摸 [02:00.39]东汉末年分三国 [02:03.44]烽火连天不休 [02:07.23]儿女情长被乱世左右 [02:12.02]谁来煮酒 [02:13.81]尔虞我诈是三国 [02:16.85]说不清对与错 [02:20.40]纷纷扰扰千百年以后 [02:25.39]一切又从头 [02:40.10]独自走下长坂坡 [02:41.85]月光太温柔 [02:43.49]曹操不啰唆 [02:45.29]一心要拿荆州 [02:47.04]用阴谋阳谋 [02:48.78]明说暗夺的摸 [02:53.72]东汉末年分三国 [02:56.76]烽火连天不休 [03:00.31]儿女情长被乱世左右 [03:05.29]谁来煮酒 [03:07.09]尔虞我诈是三国 [03:10.08]说不清对与错 [03:13.73]纷纷扰扰千百年以后 [03:18.76]一切又从头'
+                    },
+                    {
+                        title:"修炼爱情 - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product9th/product44/2021/08/0301/2020%E5%B9%B401%E6%9C%8824%E6%97%A523%E7%82%B957%E5%88%86%E7%B4%A7%E6%80%A5%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5%E5%8D%8E%E7%BA%B36%E9%A6%96811015/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/6005752BNV9010601.mp3?channelid=02&msisdn=aa17d1f8-79e7-459d-87c8-2ae3c5b124a9&Tim=1628521114084&Key=8dd2f7da643e44cc',
+                        pic:"http://218.205.239.34/MIGUM2.0/v1.0/content/sub/listenSong.do?toneFlag=LQ&netType=00&copyrightId=0&contentId=600913000008152688&resourceType=2&channel=0",
+                        lrc:'[00:10.00]歌曲名 修炼爱情 [00:12.00]歌手名 林俊杰 [00:13.00]作词：易家扬 [00:15.00]作曲：林俊杰 [00:17.45]凭什么要失望 [00:24.48]藏眼泪到心脏 [00:29.22]往事不会说谎别跟它为难 [00:36.50]我们两人之间不需要这样 [00:43.74]我想 [00:46.63]修炼爱情的心酸 [00:50.22]学会放好以前的渴望 [00:54.34]我们那些信仰 [00:56.48]要忘记多难 [01:00.87]远距离的欣赏 [01:02.77]近距离的迷惘 [01:04.31]谁说太阳会找到月亮 [01:08.50]别人有的爱 [01:10.20]我们不可能模仿 [01:15.14]修炼爱情的悲欢 [01:18.73]我们这些努力不简单 [01:22.72]快乐炼成泪水 [01:24.67]是一种勇敢 [01:29.41]几年前的幻想 [01:31.15]几年后的原谅 [01:32.75]为一张脸去养一身伤 [01:36.99]别讲想念我 [01:38.64]我会受不了这样 [01:46.29]记忆它真嚣张 [01:53.42]路灯把痛点亮 [01:58.26]情人一起看过多少次月亮 [02:05.44]它在天空看过多少次遗忘 [02:12.18]多少心慌 [02:15.57]修炼爱情的心酸 [02:19.21]学会放好以前的渴望 [02:23.25]我们那些信仰 [02:25.35]要忘记多难 [02:29.84]远距离的欣赏 [02:31.63]近距离的迷惘 [02:33.18]谁说太阳会找到月亮 [02:37.46]别人有的爱 [02:39.01]我们不可能模仿 [02:43.80]修炼爱情的悲欢 [02:47.44]我们这些努力不简单 [02:51.28]快乐炼成泪水 [02:53.77]是一种勇敢 [02:58.33]几年前的幻想 [02:59.73]几年后的原谅 [03:01.48]为一张脸去养一身伤 [03:06.01]别讲想念我 [03:07.51]我会受不了这样 [03:23.98]笑着说爱让人疯狂 [03:27.47]哭着说爱让人紧张 [03:31.07]忘不了那个人就投降 [03:39.04]修炼爱情的悲欢 [03:42.68]我们这些努力不简单 [03:46.77]快乐炼成泪水 [03:48.81]是一种勇敢 [03:53.40]几年前的幻想 [03:54.95]几年后的原谅 [03:56.75]为一张脸去养一身伤 [04:00.74]别讲想念我 [04:02.53]我会受不了这样 [04:07.62]几年前的幻想 [04:09.07]几年后的原谅 [04:10.91]为一张脸去养一身伤 [04:15.20]别讲想念我 [04:16.95]我会受不了这样'
+                    },
+                    {
+                        title:"交换余生 - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product9th/product43/2021/04/0814/2021%E5%B9%B404%E6%9C%8808%E6%97%A511%E7%82%B948%E5%88%86%E7%B4%A7%E6%80%A5%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5%E5%8D%8E%E7%BA%B355%E9%A6%96/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/6005759Z0S5142054.mp3?channelid=02&msisdn=d3a260cd-ad88-4f4d-bf4a-a1597189e196&Tim=1628521728091&Key=29148253bd843c03',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/ec2ab264dda5e4a87346f5002571ecef/aea3c247a293c47f67b018785a72a6b7",
+                        lrc:'[00:01.00]歌曲名 交换余生 [00:02.00]歌手名 林俊杰 [00:03.00]作词：易家扬 [00:04.00]作曲：林俊杰 JJ LIN [00:06.05]制作人PRODUCER： 林俊杰JJ LIN [00:06.99]配唱制作VOCAL PRODUCTION： 林俊杰JJ LIN [00:07.59]制作协力PRODUCTION ASSISTANCE ：黄冠龙ALEX D 周信廷SHiN CHOU 蔡沛蓁 [00:08.59]编曲& 键盘MUSIC ARRANGEMENT & KEYBOARDS ：简道生Dawson Chien/蔡政勋Andy Tsai [00:09.54]弦乐编写STRINGS ARRANGEMENT：王韵筑Liv Wang [00:10.04]弦乐STRINGS：李琪弦乐团 [00:10.44]吉他GUITAR：黄冠龙ALEX D [00:10.79]低音吉他BASS GUITAR：寗子达 [00:11.18]鼓DRUMS：Brendan Buckley [00:11.38]和声编写BACKGROUND VOCAL ARRANGEMENT： 林俊杰JJ LIN [00:11.98]和声BACKGROUND VOCALS： 林俊杰JJ LIN [00:12.48]录音室RECORDING STUDIOS：JFJ SANCTUARY (Taipei)/THE JFJ LAB (Taipei)/Smile录音棚（Beijing）/ East West Studios（Los Angeles） [00:13.38]录音师RECORDING ENGINEERS： 林俊杰JJ LIN/周信廷SHiN CHOU /李杰汇/Wil Anspach [00:14.33]鼓组音频编辑ADDITIONAL DRUMS ENGINEERING：Buckley Buckley [00:14.83]混音室MIXING STUDIO：mixHaus (Encino CA) [00:15.18]混音师MIXING ENGINEER：Richard Furch [00:15.48]后期母带处理制作人MASTERING PRODUCER：林俊杰JJ LIN [00:16.27]后期母带处理录音室MASTERING STUDIO：Bernie Grundman Mastering LA [00:16.97]后期母带处理录音师MASTERING ENGINEER：Mike Bozzi [00:35.63]孤单听雨的猫往时间裂缝里看到了我 [00:42.91]雷电交加之外的另一些我 [00:50.35]乌云静止以后跳进平行时空 [00:56.63]那些我旅行中的妳我 [01:00.37]回忆胡乱穿梭坠落 [01:09.70]交换余生是我非我苦与乐 [01:17.04]阴天之后总有续命的晴空 [01:24.02]如果我们几经转折结局一样不动 [01:32.07]也才算无愧这分合 [02:06.09]定位心海的锚让时间停顿的像慢动作 [02:13.38]妳说命运很坏吧幸好有我 [02:20.71]如果没有以后如果平行失控 [02:27.09]那些我不同人生的我 [02:30.84]会以什么方式哭过 [02:38.27]交换余生是我非我苦与乐 [02:45.55]阴天之后总有续命的晴空 [02:52.99]如果我们几经转折结局一样不动 [03:00.67]也才算无愧这分合 [03:08.26]云等风人等梦爱辗过时光等什么 [03:15.64]记不住认不出泪眼中谁一样脸红 [03:23.07]等妳说等我说一等就是一个宇宙 [03:29.61]日升换月落真爱换寂寞 [03:37.39]交换余生也许忘了第几梦 [03:44.62]那时我们身处第几号时空 [03:52.21]因为我们手心紧握记忆也能紧扣 [03:59.79]可不怕前方的虫洞 [04:07.27]爱是时间的古董'
+                    },
+                    {
+                        title:"江南 - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product9th/product41/2020/08/1013/2011%E5%B9%B408%E6%9C%8810%E6%97%A500011%E6%89%B9%E6%AC%A1/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60084600029133754.mp3?channelid=02&msisdn=2593a8f0-c2c2-4b7d-ace2-52e3d50fdbbe&Tim=1628521783424&Key=dd025e480c924de1',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2cb8ef76634e3201349f3e5942dad698/65c5d09fc1f9e8ec761d9ce1b72d30e8",
+                        lrc:'[00:01.00]歌曲名 江南 [00:02.00]歌手名 林俊杰 [00:03.00]作词：林秋离 [00:04.00]作曲：林俊杰 [00:37.25]风到这里就是黏 [00:40.72]黏住过客的思念 [00:45.00]雨到了这里缠成线 [00:48.77]缠着我们留恋人世间 [00:53.16]你在身边就是缘 [00:56.65]缘分写在三生石上面 [01:01.18]爱有万分之一甜 [01:04.68]宁愿我就葬在这一天 [01:09.17]圈圈圆圆圈圈 [01:11.06]天天年年天天的我 [01:13.71]深深看你的脸 [01:16.11]生气的温柔 [01:18.19]埋怨的温柔的脸 [01:24.29]不懂爱恨情愁煎熬的我们 [01:27.93]都以为相爱就像风云的善变 [01:32.05]相信爱一天 [01:34.46]抵过永远 [01:36.46]在这一刹那冻结了时间 [01:40.14]不懂怎么表现温柔的我们 [01:44.09]还以为殉情只是古老的传言 [01:47.87]离愁能有多痛 [01:50.43]痛有多浓 [01:52.41]当梦被埋在江南烟雨中 [01:55.70]心碎了才懂 [02:01.94]呜 [02:20.98]圈圈圆圆圈圈 [02:22.95]天天年年天天的我 [02:25.68]深深看你的脸 [02:28.11]生气的温柔 [02:30.13]埋怨的温柔的脸 [02:36.05]不懂爱恨情愁煎熬的我们 [02:39.92]都以为相爱就像风云的善变 [02:44.20]相信爱一天 [02:46.44]抵过永远 [02:48.40]在这一刹那冻结了时间 [02:52.05]不懂怎么表现温柔的我们 [02:56.06]还以为殉情只是古老的传言 [02:59.94]离愁能有多痛 [03:02.40]痛有多浓 [03:04.47]当梦被埋在江南烟雨中 [03:07.71]心碎了才懂 [03:15.84]哦 [03:20.19]相信爱一天 [03:22.36]抵过永远 [03:24.47]在这一刹那冻结了时间 [03:28.11]不懂怎么表现温柔的我们 [03:31.98]还以为殉情只是古老的传言 [03:35.83]离愁能有多痛 [03:38.34]痛有多浓 [03:40.47]当梦被埋在江南烟雨中 [03:45.75]心碎了才懂 [03:57.34]喔 [04:05.08]耶'
+                    },
+                    {
+                        title:"背对背拥抱 (电视剧《爱情睡醒了》插曲) - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product7th/productB25/2020/08/1013/2009%E5%B9%B412%E6%9C%8808%E6%97%A5%E6%B5%B7%E8%9D%B6%E5%94%B1%E7%89%87/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60058622727134053.mp3?channelid=02&msisdn=84f67d98-e025-4cb6-91b0-68b149b63da2&Tim=1628521819394&Key=17d62ef0c3d64c48',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2cb8ef76634e3201349f3e5942dad698/65c5d09fc1f9e8ec761d9ce1b72d30e8",
+                        lrc:'[00:00.00]歌曲名 背对背拥抱 歌手名 林俊杰 [00:00.00]作词：林怡凤 [00:00.00]作曲：林俊杰 [00:14.49]话总说不清楚 [00:18.34]该怎么明了 [00:22.04]一字一句像 [00:25.40]圈套 [00:29.49]旧账总翻不完 [00:33.23]谁无理取闹 [00:36.41]你的双手甩开刚好的微妙 [00:41.94]然后战火再燃烧 [00:48.53]我们背对背拥抱 [00:52.19]滥用沉默在咆哮 [00:55.84]爱情来不及变老 [00:58.88]葬送在烽火的玩笑 [01:03.27]我们背对背拥抱 [01:06.96]真话兜着圈子乱乱绕 [01:10.89]只是想让我知道 [01:14.61]只是想让你知道 [01:18.35]爱的警告 [01:22.97]话总说不清楚 [01:26.70]该怎么明了 [01:30.38]一字一句像 [01:33.68]圈套 [01:36.41]耶 [01:37.88]旧帐总翻不完 [01:41.48]谁无理取闹 [01:44.78]你的双手甩开刚好的微妙 [01:50.37]然后战火再燃烧 [01:54.88]我们背对背拥抱 [01:58.72]滥用沉默在咆哮 [02:02.39]爱情来不及变老 [02:05.33]葬送在烽火的玩笑 [02:08.86]喔喔 [02:09.84]我们背对背拥抱 [02:13.46]真话兜着圈子乱乱绕 [02:17.28]只是想让我知道 [02:20.99]只是想让你知道 [02:24.48]爱的警告 [02:29.18]我不要 [02:31.02]一直到 [02:32.67]形同陌路变成自找 [02:36.29]既然可以拥抱 [02:38.41]就不要轻易放掉 [02:44.94]我们背对背拥抱 [02:48.56]滥用沉默在咆哮 [02:52.15]爱情来不及变老 [02:55.16]葬送在烽火的玩笑 [02:59.42]我们背对背拥抱 [03:03.20]真话兜着圈子乱乱绕 [03:07.32]只是想让我知道 [03:10.98]只是想让你知道 [03:14.88]这警告 [03:18.40]只是想让我知道 [03:21.99]只是想让你知道 [03:26.26]爱的警告'
+                    },
+                    {
+                        title:"那些你很冒险的梦 - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product4th/product36/2019/09/0614/2018%E5%B9%B409%E6%9C%8824%E6%97%A500%E7%82%B900%E5%88%86%E6%89%B9%E9%87%8F%E9%A1%B9%E7%9B%AE%E5%8D%8E%E7%BA%B399%E9%A6%96-16/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/6005751FH33.mp3?channelid=02&msisdn=6e5f1a13-9931-4b48-8775-f56fd384911c&Tim=1628521854496&Key=e0c23ab9b85db5ff',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/b1899d500dda5db2da11df3efc89cba6/5513f311e612912ed77276103466308a/dce6435f936aabc18bbd9fc9e9910fd3",
+                        lrc:'[00:00.00]歌曲名 那些你很冒险的梦 [00:00.00]歌手名 林俊杰 [00:00.00]作词：王雅君 [00:00.00]作曲：林俊杰 [00:15.35]当两颗心开始震动 [00:22.78]当你瞳孔学会闪躲 [00:29.17]当爱慢慢被遮住只剩下黑 [00:36.47]距离像影子被拉拖 [00:43.35]当爱的故事剩听说 [00:49.83]我找不到你单纯的面孔 [00:56.77]当生命每分每秒都为你转动 [01:04.05]心多执着就加倍心痛 [01:09.79]那些你很冒险的梦我陪你去疯 [01:18.17]折纸飞机碰到雨天终究会坠落 [01:24.21]太残忍的话我直说因为爱很重 [01:31.99]你却不想懂只往反方向走 [01:46.51]哦当爱的故事剩听说 [01:56.98]我找不到你单纯的面孔 [02:03.97]当生命每分每秒都为你转动 [02:10.65]心有多执着就加倍心痛 [02:17.19]那些你很冒险的梦我陪你去疯 [02:24.97]折纸飞机碰到雨天终究会坠落 [02:31.15]太残忍的话我直说因为爱很重 [02:38.94]你却不想懂只往反方向走 [02:46.42]我不想放手你松开的左手 [02:50.06]你爱的放纵我白不回天空 [02:54.05]我输了累了 [02:56.45]但你再也不回头 [03:02.68]那些你很冒险的梦我陪你去疯 [03:11.26]折纸飞机碰到雨天终究会坠落 [03:17.10]太残忍的话我直说因为爱很重 [03:24.73]你却不想懂只往反方向走 [03:32.02]你真的不懂我的爱已降落'
+                    },
+                                        {
+                        title:"她说 (电视剧《爱情睡醒了》插曲) - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/productBe/productB03/2019/10/1018/2010%E5%B9%B412%E6%9C%8809%E6%97%A500014%E6%89%B9%E6%AC%A1/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60058622891.mp3?channelid=02&msisdn=e9ad8688-d85b-446f-812d-9a7e0b9c3514&Tim=1628514556789&Key=d747bf1410ed9a44',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2cb8ef76634e3201349f3e5942dad698/65c5d09fc1f9e8ec761d9ce1b72d30e8",
+                        lrc:'[00:01.00]歌曲名 她说 [00:02.00]歌手名 林俊杰 [00:03.00]作词：孙燕姿 [00:04.00]作曲：林俊杰 [00:25.65]她静悄悄的来过 [00:31.16]她慢慢带走沉默 [00:36.78]只是最后的承诺 [00:42.38]还是没有带走了寂寞 [00:48.17]我们爱的没有错 [00:53.65]只是美丽的独秀 [00:57.91]太折磨 [01:00.01]她说无所谓 [01:04.92]只要能在夜里 [01:07.07]翻来覆去的时候有寄托 [01:11.24]等不到天黑 [01:13.49]烟火不会太完美 [01:16.84]回忆烧成灰 [01:19.05]还是等不到结尾 [01:23.35]她曾说的无所谓 [01:26.12]我怕一天一天被摧毁 [01:34.13]等不到天黑 [01:36.18]不敢凋谢的花蕾 [01:39.53]绿叶在跟随 [01:41.64]放开刺痛的滋味 [01:44.49]今后不再怕天明 [01:50.10]我想只是害怕清醒 [02:24.38]她静悄悄的来过 [02:29.78]她慢慢带走沉默 [02:35.21]只是最后的承诺 [02:40.96]还是没有带走了寂寞 [02:46.51]我们爱的没有错 [02:52.12]只是美丽的独秀 [02:56.47]太折磨 [02:58.54]她说无所谓 [03:03.45]只要能在夜里 [03:05.50]翻来覆去的时候有寄托 [03:09.90]等不到天黑 [03:12.06]烟火不会太完美 [03:15.56]回忆烧成灰 [03:17.71]还是等不到结尾 [03:21.82]她曾说的无所谓 [03:24.57]我怕一天一天被摧毁 [03:32.47]等不到天黑 [03:34.62]不敢凋谢的花蕾 [03:38.14]绿叶在跟随 [03:40.20]放开刺痛的滋味 [03:43.15]今后不再怕天明 [03:48.82]我想只是害怕清醒 [03:55.13]等不到天黑 [03:57.23]烟火不会太完美 [04:00.63]回忆烧成灰 [04:02.75]还是等不到结尾 [04:07.00]她曾说的无所谓 [04:09.77]我怕一天一天被摧毁 [04:17.54]等不到天黑 [04:19.85]不敢凋谢的花蕾 [04:23.27]绿叶在跟随 [04:25.32]放开刺痛的滋味 [04:28.71]今后不再怕天明 [04:34.30]我想只是害怕清醒 [04:41.28]不怕天明 [04:45.72]我想只是害怕清醒'
+                    },
+                      {
+                        title:"一千年以后 - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product7th/productB25/2020/08/1013/12%E6%9C%88%E7%BB%88%E7%AB%AF%E8%90%A5%E9%94%80%E5%86%85%E7%BD%AE188%E9%A6%96%E5%85%A8%E6%9B%B2600586/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/60058600119134002.mp3?channelid=02&msisdn=7fc7f5e3-75a1-4c42-b860-47a3249b3b79&Tim=1628521877781&Key=df1188861ded9256',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2cb8ef76634e3201349f3e5942dad698/65c5d09fc1f9e8ec761d9ce1b72d30e8",
+                        lrc:'[ti:一千年以后] [ar:林俊杰] [00:00.00]歌曲名 一千年以后 歌手名 林俊杰 [00:01.00]作词：李瑞洵 [00:02.00]作曲：林俊杰 [00:15.93]心跳乱了节奏 [00:20.37]梦也不自由 [00:23.96]爱是个绝对承诺不说 [00:30.05]撑到一千年以后 [00:31.74]放任无奈淹没尘埃 [00:35.58]我在废墟之中守着你走来喔 [00:39.57]我的泪光承载不了喔 [00:45.38]所有一切你要的爱 [00:49.97]因为在一千年以后 [00:54.59]世界早已没有我 [00:58.58]无法深情挽着你的手 [01:02.87]浅吻着你额头 [01:06.06]别等到一千年以后 [01:10.15]所有人都遗忘了我 [01:14.54]那时红色黄昏的沙漠 [01:18.53]能有谁解开缠绕千年的寂寞 [01:41.57]喔放任无奈淹没尘埃 [01:46.41]我在废墟之中守着你走来喔 [01:50.50]我的泪光承载不了喔 [01:55.84]所有一切你需要的爱 [02:00.73]因为在一千年以后 [02:05.42]世界早已没有我 [02:09.46]无法深情挽着你的手 [02:13.60]浅吻着你额头 [02:16.94]别等到一千年以后 [02:21.08]所有人都遗忘了我 [02:25.23]那时红色黄昏的沙漠 [02:29.07]能有谁解开缠绕千年的寂寞 [02:48.72]无法深情挽着你的手 [02:53.06]浅吻着你额头 [02:56.30]别等到一千年以后 [03:00.45]所有人都遗忘了我 [03:04.44]那时红色黄昏的沙漠 [03:08.43]能有谁解开缠绕千年的寂寞 [03:19.10]缠绕千年的寂寞'
+                    },
+                                        {
+                        title:"手心的蔷薇 - G.E.M.邓紫棋,林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product07/2018/02/07/2015%E5%B9%B412%E6%9C%8809%E6%97%A514%E7%82%B924%E5%88%86%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5%E5%8D%8E%E7%BA%B312%E9%A6%96/%E6%AD%8C%E6%9B%B2%E4%B8%8B%E8%BD%BD/MP3_320_16_Stero/%E6%89%8B%E5%BF%83%E7%9A%84%E8%94%B7%E8%96%87-%E6%9E%97%E4%BF%8A%E6%9D%B0.mp3?channelid=02&msisdn=c9ff522e-6636-4d8c-a04a-c732271f1b02&Tim=1628521902991&Key=c472d77f48ff0f64',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/b1899d500dda5db2da11df3efc89cba6/56d3ec99672f77ec57fa4482116a9ac4/1d129320cc3d61748150873bf00a48d2",
+                        lrc:'[ti:手心的蔷薇] [ar:林俊杰] [00:00.00]歌曲名 手心的蔷薇 歌手名 林俊杰 [00:01.00]作词：林怡凤 [00:02.00]作曲：林俊杰 [00:12.19]你眼眶超载的眼泪 [00:17.68]乘客是绝望和心碎 [00:21.37]我可以看见你忍住伤悲 [00:27.41]那一双爱笑眼睛不适合皱眉 [00:34.54]你目光独有的温暖 [00:39.88]是不会熄灭的明天 [00:43.52]我可以感觉 [00:46.37]你没有说出口的安慰 [00:50.31]远比我失去的更加珍贵 [01:00.33]手心的蔷薇刺伤而不自觉 [01:05.42]你值得被疼爱你懂我的期待 [01:11.11]绚烂后枯萎经过几个圆缺 [01:16.55]有我你在 [01:22.08]你埋藏的蔷薇你动人的香味 [01:27.57]是最好的你你陪我 [01:30.17]盼我接受世界 [01:34.16]不完美另一面多美 [01:49.15]指纹写下所有遇见 [01:54.64]你留着心碎那一页 [01:58.28]骄傲的展现你真无所谓 [02:03.47]无所谓 [02:04.52]偶尔放纵的泪像汹涌的海水 [02:11.15]我学着一个人存在 [02:15.10]I\'m here [02:16.54]关上灯比较不孤单 [02:20.58]你给的力量 [02:23.08]让我在夜里安心入睡 [02:27.12]就算没有人心疼我的泪 [02:33.50]手心的蔷薇刺伤而不自觉 [02:39.44]你值得被疼爱你懂我的期待 [02:45.13]绚烂后枯萎经过几个圆缺 [02:50.66]有我你在哦 [02:55.90]你埋藏的蔷薇你动人的香味 [03:01.24]是最好的你你陪我 [03:03.88]盼我接受世界 [03:08.17]不完美另一面多美 [03:18.70]手心的蔷薇哦 [03:23.49]是带刺的纪念哦耶耶 [03:29.53]整理好眼泪 [03:32.62]I am here [03:39.45]陪我盼我 [03:40.60]盼你接受世界 [03:41.85]太虚伪太善变不完美 [03:46.94]天会黑心会累耶耶 [03:51.93]有我你在什么都无畏 [04:03.55]别害怕握太紧放手 [04:07.69]蔷薇伤痕累累 [04:14.12]这世界有你无畏'
+                    },
+                                        {
+                        title:"爱不会绝迹 - 林俊杰",
+                        author:"林俊杰",
+                        url:'http://freetyst.nf.migu.cn/public/product02/2017/08/2009%E5%B9%B412%E6%9C%8808%E6%97%A5%E6%B5%B7%E8%9D%B6%E5%94%B1%E7%89%87/%E6%AD%8C%E6%9B%B2%E4%B8%8B%E8%BD%BD/MP3_320_16_Stero/%E7%88%B1%E4%B8%8D%E4%BC%9A%E7%BB%9D%E8%BF%B9-%E6%9E%97%E4%BF%8A%E6%9D%B0.mp3?channelid=02&msisdn=ab6932ac-c2b6-46d2-be1a-d27c83c3a635&Tim=1628521924072&Key=7d830dbf90f78551',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2cb8ef76634e3201349f3e5942dad698/e0bc3fd100733060b497e10cc10040b9",
+                        lrc:'[ti:爱不会绝迹] [ar:林俊杰] [00:00.00]歌曲名 爱不会绝迹 歌手名 林俊杰 [00:03.00]作词：王雅君 [00:04.00]作曲：林俊杰 [00:21.31]我站在世界的屋顶 [00:27.66]用放大镜看天地 [00:34.02]发现太多的神奇 [00:37.60]一起去寻觅未知的命运 [00:48.29]宁愿相信爱永不会绝迹 [00:51.44]谁能抹去那些古老传奇 [00:54.71]我们手握紧勇气和信心 [00:57.75]就能够无敌yeah [01:00.92]渴望每个明天绝不放弃 [01:04.14]努力燃烧用不完的活力 [01:07.31]幻想的天地揭开了奥秘 [01:10.43]心跳永不暂停 [01:43.54]我预言下一秒危机 [01:49.93]有你就不怕荆棘荆棘 [01:56.11]并肩创造的奇迹 [01:59.82]都记在心底友情和恒星 [02:07.27]宁愿相信爱永不会绝迹 [02:10.56]谁能抹去那些古老传奇 [02:13.67]我们手握紧勇气和信心 [02:16.72]就能够无敌yeah [02:19.94]渴望每个明天绝不放弃 [02:23.10]努力燃烧用不完的活力 [02:26.25]幻想的天地揭开了奥秘 [02:29.34]心跳永不暂停 [02:42.39]不管经过多少难题 [02:45.56]不管穿越多少距离 [02:48.81]心和你心和你 [02:50.36]越靠近 [02:51.09]越靠近 [02:51.90]梦想就会更清晰 [02:54.74]渴望每个明天绝不放弃 [02:57.86]努力燃烧用不完的活力 [03:00.89]幻想的天地揭开了奥秘 [03:04.01]心跳永不暂停 [03:07.29]宁愿相信爱永不会绝迹 [03:10.44]谁能抹去那些古老传奇 [03:13.57]我们手握紧勇气和信心 [03:19.82]渴望每个明天绝不放弃 [03:23.08]努力燃烧用不完的活力 [03:26.29]幻想的天地揭开了奥秘 [03:29.32]心跳永不暂停 [03:32.71]我始终都相信爱不会绝迹'
+                    },
+                    {
+                        title:"给我一个理由忘记 - A-Lin",
+                        author:"A-Lin",
+                        url:'http://freetyst.nf.migu.cn/public/product9th/product44/2021/08/0220/2020%E5%B9%B406%E6%9C%8830%E6%97%A515%E7%82%B941%E5%88%86%E7%B4%A7%E6%80%A5%E5%86%85%E5%AE%B9%E5%87%86%E5%85%A5%E5%92%AA%E5%92%95AVEX42805%E9%A6%96/%E6%A0%87%E6%B8%85%E9%AB%98%E6%B8%85/MP3_320_16_Stero/69962300770202038.mp3?channelid=02&msisdn=e3ab6bf9-7215-4c84-a739-8c6610876c26&Tim=1628521942092&Key=6a45ab32bb38c28e',
+                        pic:"http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/e546c1538b4db6272da5d2c2848b3ad5/60d927a54e124d6d81cf9dbdd69cbcae",
+                        lrc:'[00:01.00]歌曲名 给我一个理由忘记(寂寞不痛) [00:02.00]歌手名 A-Lin [00:03.00]作词：邬裕康 [00:04.00]作曲：游政豪 [00:47.06]雨都停了这片天灰什么呢 [00:53.92]我还记得你说我们要快乐 [01:01.15]深夜里的脚步声总是刺耳 [01:06.54]害怕寂寞就让狂欢的城市陪我关灯 [01:14.17]只是哪怕周围再 [01:15.96]多人感觉还是一个人 [01:21.10]每当我笑了心却狠狠的哭着 [01:27.48]给我一个理由忘记那么爱我的你 [01:34.72]给我一个理由放弃当时做的决定 [01:41.90]有些爱越想抽离却越更清晰 [01:46.34]而最痛的距离是你不在 [01:50.93]身边却在我的心里 [02:12.74]当我走在去过的每个地方 [02:19.92]总会听到你那最自由的笑 [02:27.06]当我回到一个人住的地方 [02:32.44]最怕看到冬天你最爱穿的那件外套 [02:40.13]只是哪怕周围再多人 [02:44.12]感觉还是一个人 [02:47.26]每当我笑了心却狠狠的哭着 [02:53.45]给我一个理由忘记那么爱我的你 [03:00.68]给我一个理由放弃当时做的决定 [03:07.86]有些爱越想抽离却越更清晰 [03:12.41]而最痛的距离是你不在 [03:16.85]身边却在我的心里 [03:43.94]我找不到理由忘记大雨里的别离 [03:50.88]我找不到理由放弃我等你的决心 [03:57.96]有些爱越想抽离却越更清晰 [04:02.50]而最痛的距离是你不在 [04:07.04]身边却在我的心里 [04:24.50]我想你'
+                    },
+                    {
+                        title:"遥远的你 - 花僮",
+                        author:"花僮",
+                        url:'https://od.lk/s/NzlfMjUyNDc3NThf/%E9%81%A5%E8%BF%9C%E7%9A%84%E4%BD%A0.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/88/46/1499088427.jpg",
+                        lrc:'[00:00.92]遥远的你 - 花僮 [00:01.59]作词：徐成 [00:02.16]作曲： 花僮 [00:02.79]编曲：王中易&高漠伊 [00:03.43]录音：花僮音乐工作室 [00:04.11]混音：卢润泽 [00:04.88]母带：卢润泽母带工作室 [00:05.69]七月的风 [00:07.55]八月的雨 [00:09.16]卑微的我喜欢遥远的你 [00:12.66]你还未来 [00:14.39]怎敢老去 [00:16.07]未来的我和你奉陪到底 [00:19.47]你若同意 [00:21.11]我一定去 [00:22.86]可你并不在意我的出席 [00:26.24]你的过去 [00:28.08]无法参与 [00:30.20]但我还是喜欢你 [00:37.19]遥远的你现在哪里 [00:40.87]生活是否如意 [00:44.75]花期此生只一季 [00:48.19]怎能错过相遇 [00:50.79]遥远的你我好想你 [00:54.57]像中了熬夜的瘾 [00:58.43]你笑起来是好天气 [01:01.52]把阳光洒满了 [01:03.30]我的呼吸 [01:07.52]七月的风 [01:09.32]八月的雨 [01:10.94]卑微的我喜欢遥远的你 [01:14.30]你还未来 [01:16.07]怎敢老去 [01:17.77]未来的我和你奉陪到底 [01:21.20]你若同意 [01:22.99]我一定去 [01:24.55]可你并不在意我的出席 [01:28.00]你的过去 [01:29.76]无法参与 [01:32.07]但我还是喜欢你 [01:52.58]遥远的你现在哪里 [01:56.29]生活是否如意 [02:00.19]花期此生只一季 [02:03.60]怎能错过相遇 [02:06.22]遥远的你我好想你 [02:09.98]像中了熬夜的瘾 [02:13.90]你笑起来是好天气 [02:16.70]把阳光洒满了 [02:18.65]我的呼吸 [02:22.93]七月的风 [02:24.64]八月的雨 [02:26.37]卑微的我喜欢遥远的你 [02:29.83]你还未来 [02:31.45]怎敢老去 [02:33.18]未来的我和你奉陪到底 [02:36.62]你若同意 [02:38.34]我一定去 [02:40.02]可你并不在意我的出席 [02:43.39]你的过去 [02:45.09]无法参与 [02:47.59]但我还是喜欢你 [02:54.65]啦啦啦啦啦啦 [03:01.53]啦啦啦啦啦啦 [03:08.21]喜欢你'
+                    },
+                    {
+                        title:"青春的告白 - SING女团",
+                        author:"S.I.N.G",
+                        url:'https://od.lk/s/NzlfMjUyNDc5MjVf/%E9%9D%92%E6%98%A5%E7%9A%84%E5%91%8A%E7%99%BD.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/92/98/3845317101.jpg",
+                        lrc:'[00:00.26]青春的告白-S.I.N.G女团 [00:01.83]作词：王韵韵 作曲：刘佳 [00:23.21]感谢你为我鼓掌和加油 [00:27.07]感谢你给我心跳和感动 [00:54.92]七色海岛 [00:56.62]阳光围绕 [00:58.81]最自然的微笑 [01:02.31]长发飘飘 [01:03.90]心情好好 [01:06.08]做自由的小鸟 [01:09.82]并肩奔跑 [01:11.61]张开怀抱 [01:13.68]风在脸上舞蹈 [01:17.06]从现在起 [01:18.90]梦想闪耀 [01:21.18]青春正式宣告 [01:24.83]我的胆小软弱在缩小 [01:28.35]这力量多微妙 [01:31.66]我们的快乐骄傲在生长 [01:35.73]猖狂一次又能怎样 [01:40.56]感谢你为我鼓掌和加油 [01:44.77]感谢你给我心跳和感动 [01:48.51]感谢你在我左右 [01:52.66]没有放弃 没有保留 [01:55.62]你是我最最宝贝的朋友 [01:59.22]就在我最需要爱的时候 [02:03.71]碰一碰指头 约定以后 [02:09.25]一直一起走 [02:25.61]七色海岛 [02:27.03]阳光围绕 [02:29.25]最自然的微笑 [02:32.52]长发飘飘 [02:34.33]心情好好 [02:36.51]做自由的小鸟 [02:39.75]并肩奔跑 [02:41.76]张开怀抱 [02:43.87]风在脸上舞蹈 [02:47.53]在这一秒 [02:49.20]梦想闪耀 [02:51.64]正式青春宣告 [02:55.32]我的胆小软弱在缩小 [02:58.79]这力量多微妙 [03:02.45]我们的快乐骄傲在生长 [03:06.15]猖狂一次又能怎样 [03:11.18]感谢你为我鼓掌和加油 [03:15.02]感谢你给我心跳和感动 [03:19.05]感谢你在我左右 [03:23.13]没有放弃 没有保留 [03:25.90]你是我最最宝贝的朋友 [03:29.68]就在我最需要爱的时候 [03:34.03]碰一碰指头 约定以后 [03:39.79]一直一起走 [03:41.41]感谢你为我鼓掌和加油 [03:44.45]感谢你给我心跳和感动 [03:48.58]感谢你在我左右 [03:52.52]没有放弃 没有保留 [03:55.57]你是我最最宝贝的朋友 [03:59.31]就在我最需要爱的时候 [04:03.51]碰一碰指头 约定以后 [04:09.33]一直一起走 [04:22.52]Yeah……Wo Oh……'
+                    },
+                    {
+                        title:"借过-《旋风少女》 - 印子月",
+                        author:"印子月",
+                        url:'https://mp3.9ku.com/new/2015/06-26/665248.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/60/10/432803434.jpg",
+                        lrc:'[00:00.99]借过 - 印子月 [00:03.64]词：印子月 [00:06.90]曲：印子月 [00:14.16]失去了联系 [00:17.33]一场梦清醒 [00:20.61]残留在眼角的泪 [00:23.95]是你走的痕迹 [00:27.34]刚想要珍惜 [00:30.50]爱已经先过期 [00:33.79]我太迟钝还来不及 [00:37.23]抱住你的背脊 [00:40.67]如果决定要走 [00:44.02]为何要停留 [00:47.33]没有打算相守 [00:50.72]为何要牵手 [00:54.18]原来你只从我身边借过 [01:00.31]我却误以为你是从天而降的彩虹 [01:07.36]曾经你只从我身边借走以后 [01:13.96]可是忘了还给我 [01:30.66]失去了联系 [01:33.99]一场梦清醒 [01:37.31]残留在眼角的泪 [01:40.53]是你走的痕迹 [01:43.97]刚想要珍惜 [01:47.12]爱已经先过期 [01:50.50]我太迟钝还来不及 [01:53.94]抱住你的背脊 [01:57.27]如果决定要走 [02:00.71]为何要停留 [02:03.97]没有打算相守 [02:07.35]为何要牵手 [02:10.59]原来你只从我身边借过 [02:16.99]我却误以为你是从天而降的彩虹 [02:24.10]曾经你是从我身边借走以后 [02:30.77]可是忘了还给我 [03:03.96]原来你只从我身边借过 [03:10.34]我却误以为你是从天而降的彩虹 [03:17.42]曾经你只从我身边借走以后 [03:25.66]可是忘了还给我 [03:35.81]可是忘了还给我'
+                    },
+                    {
+                        title:"忘了牵手-《旋风少女》-牛奶@咖啡",
+                        author:"牛奶咖啡",
+                        url:'https://mp32.9ku.com/upload/128/2021/02/24/1057483.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/71/10/2792390699.jpg",
+                        lrc:'[00:00.99]借过 - 印子月 [00:03.64]词：印子月 [00:06.90]曲：印子月 [00:14.16]失去了联系 [00:17.33]一场梦清醒 [00:20.61]残留在眼角的泪 [00:23.95]是你走的痕迹 [00:27.34]刚想要珍惜 [00:30.50]爱已经先过期 [00:33.79]我太迟钝还来不及 [00:37.23]抱住你的背脊 [00:40.67]如果决定要走 [00:44.02]为何要停留 [00:47.33]没有打算相守 [00:50.72]为何要牵手 [00:54.18]原来你只从我身边借过 [01:00.31]我却误以为你是从天而降的彩虹 [01:07.36]曾经你只从我身边借走以后 [01:13.96]可是忘了还给我 [01:30.66]失去了联系 [01:33.99]一场梦清醒 [01:37.31]残留在眼角的泪 [01:40.53]是你走的痕迹 [01:43.97]刚想要珍惜 [01:47.12]爱已经先过期 [01:50.50]我太迟钝还来不及 [01:53.94]抱住你的背脊 [01:57.27]如果决定要走 [02:00.71]为何要停留 [02:03.97]没有打算相守 [02:07.35]为何要牵手 [02:10.59]原来你只从我身边借过 [02:16.99]我却误以为你是从天而降的彩虹 [02:24.10]曾经你是从我身边借走以后 [02:30.77]可是忘了还给我 [03:03.96]原来你只从我身边借过 [03:10.34]我却误以为你是从天而降的彩虹 [03:17.42]曾经你只从我身边借走以后 [03:25.66]可是忘了还给我 [03:35.81]可是忘了还给我'
+                    },
+                    {
+                        title:"那个远方-《旋风少女》-陈楚生",
+                        author:"陈楚生",
+                        url:'https://mp3.9ku.com/new/2015/06-26/665247.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/60/10/432803434.jpg",
+                        lrc:'[00:01.28]那个远方 - 陈楚生 [00:03.13]词：金玟岐 [00:04.47]曲：金玟岐 [00:24.23]是梦吗 是你吗 [00:29.52]就算现实会将我叫醒 [00:34.56]渺小生命 [00:37.21]越波澜不惊 [00:40.14]越无法看轻 [00:45.07]是梦吧是你吧 [00:50.23]那双青春炽热的眼睛 [00:55.51]不再闪躲 [00:58.47]跳动着的心 [01:00.99]就算逆着光也清醒 [01:07.42]那个远方什么模样 [01:12.84]萦绕着发烫的梦想 [01:18.97]就奋不顾身撑起手掌 [01:24.51]够不到又怎样 [01:28.47]那个远方叫做流浪 [01:33.55]到不了也念念不忘 [01:39.95]让你的翅膀变成行囊 [01:44.92]陪着我在有梦的地方 [02:00.61]是梦吧 是你吧 [02:05.96]那双青春炽热的眼睛 [02:11.12]不再闪躲跳动着的心 [02:16.74]就算逆着光也清醒 [02:20.58]那个远方什么模样 [02:25.94]萦绕着发烫的梦想 [02:32.03]就奋不顾身撑起手掌 [02:37.66]够不到又怎样 [02:41.46]那个远方叫做流浪 [02:46.82]到不了也念念不忘 [02:52.69]让你的翅膀变成行囊 [02:58.28]陪着我在有梦的地方 [03:12.93]那个远方什么模样 [03:18.03]萦绕着发烫的梦想 [03:24.29]就奋不顾身撑起手掌 [03:29.81]够不到又怎样 [03:33.65]那个远方叫做流浪 [03:39.10]到不了也念念不忘 [03:45.18]让你的翅膀变成行囊 [03:50.42]陪着我在有梦的地方 [04:00.74]陪着我在有梦的地方'
+                    },
+                    {
+                        title:"燃烧吧青春-《旋风少女》-何洁",
+                        author:"何洁",
+                        url:'http://h5.1ting.com/file?url=/zzzzzmp3/2015fJun/30X/30h_Hejie/01.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/60/10/432803434.jpg",
+                        lrc:'[00:02.50]燃烧吧青春 - 何洁 [00:04.11]词曲：印子月 [00:19.11]炙热的光照亮我的肩膀 [00:22.16]滚烫的心澎湃我的胸膛 [00:24.94]呼吸的节奏跟随脚步从不慌张 [00:30.67]就算我看不到终点在哪 [00:33.64]就算有很多人跌倒受伤 [00:36.58]在精疲力竭之前让我享受光芒 [00:42.28]照在我的路上 [00:45.04]不再惧怕夜的荒凉 [00:47.57]长出翅膀快要飞起来 [00:54.13]我的青春不为爱而活 [00:56.53]只想为梦想拼搏 [00:59.02]无法停住奔跑脚步 [01:02.15]谢谢你为我加油 [01:04.62]我的梦想没那么沉重 [01:08.07]只想让自己感动 [01:10.69]我错过的已经落幕 [01:13.77]就让他们在身后为我加油 [01:29.05]就算我看不到终点在哪 [01:31.75]就算有很多人跌倒受伤 [01:34.70]在精疲力竭之前让我享受光芒 [01:40.38]照在我的路上 [01:43.07]不再惧怕夜的荒凉 [01:45.68]长出翅膀快要飞起来 [01:52.27]我的青春不为爱而活 [01:54.62]只想为梦想拼搏 [01:57.18]无法停住奔跑脚步 [02:00.21]谢谢你为我加油 [02:02.75]我的梦想没那么沉重 [02:06.25]只想让自己感动 [02:08.89]我错过的已经落幕 [02:11.85]就让他们在身后为我加油 [02:27.34]就算一直孤军奋斗 [02:29.23]至少我曾有过美梦 [02:32.19]就算这条路有尽头 [02:34.92]我将飞出这片宇宙 [02:38.52]我的青春不为爱而活 [02:41.18]只想为梦想拼搏 [02:43.98]无法停住奔跑脚步 [02:46.80]谢谢你为我加油 [02:49.82]我的梦想没那么沉重 [02:52.72]只想让自己感动 [02:55.33]我错过的已经落幕 [02:58.40]就让他们在身后为我加油'
+                    },
+                    {
+                        title:"星星-《旋风少女》-牛奶@咖啡",
+                        author:"牛奶咖啡",
+                        url:'https://mp3.9ku.com/new/2015/06-26/665253.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/34/91/2474670495.jpg",
+                        lrc:'[00:00.00]星星 (《旋风少女》电视剧插曲) - 牛奶咖啡 (Milk Coffee) [00:00.35]词：kiki [00:00.71]曲：格非 [00:01.06]我们是天上的星星 [00:05.58]我们在孤单的旅行 [00:10.65]相遇是种奇迹 [00:15.45]想懂得爱你的意义 [00:40.67]茫茫夜空里 [00:44.80]听见心跳的声音 [00:49.94]虽然相隔万里 [00:52.60]渴望的眼睛 [00:55.03]寻找着彼此的轨迹 [01:00.03]请在我梦里 [01:04.85]留下你的脚印 [01:10.00]同样的不安 [01:12.30]同样的期待 [01:14.67]全都是爱着的证明 [01:19.45]我们是天上的星星 [01:23.99]我们在孤单的旅行 [01:29.10]相遇是种奇迹 [01:33.78]想懂得爱你的意义 [01:38.58]我们是天上的星星 [01:43.50]在天空相遇又分离 [01:48.36]用温暖微弱的光 [01:53.42]照亮了彼此的心 [01:58.67]茫茫夜空里 [02:03.17]听见心跳的声音 [02:08.28]虽然相隔万里 [02:11.00]渴望的眼睛 [02:13.47]寻找着彼此的轨迹 [02:18.41]请在我梦里 [02:22.95]留下你的脚印 [02:28.24]同样的不安 [02:30.60]同样的期待 [02:33.02]全都是爱着的证明 [02:40.02]我们是天上的星星 [02:44.62]我们在孤单的旅行 [02:49.92]相遇是种奇迹 [02:54.61]想懂得爱你的意义 [02:59.48]我们是天上的星星 [03:04.47]在天空相遇又分离 [03:09.17]用温暖微弱的光 [03:14.12]照亮了彼此的心 [03:19.01]我们是天上的星星 [03:38.89]我们是天上的星星 [03:43.54]我们在孤单的旅行 [03:48.37]用温暖微弱的光 [03:53.37]照亮了彼此的心 [03:58.25]我们是天上的星星'
+                    },
+                    {
+                        title:"痛快-《旋风少女》-金玟岐",
+                        author:"金玟岐",
+                        url:'https://mp3.9ku.com/new/2015/06-26/665250.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/60/10/432803434.jpg",
+                        lrc:'[00:01.14]痛快 - 金玟岐 [00:05.18]谁在等待不可知的未来 [00:11.69]原地发呆心动就跑起来 [00:18.28]青春的一场竞技赛 [00:21.63]不问输赢都一样精彩 [00:31.62]快跳出来双脚腾空自在 [00:37.93]别躲起来爱就要说出来 [00:44.60]汗与泪模糊的现在 [00:47.74]不就是我们拥抱的未来 [00:54.66]要勇敢笑得痛快 [01:00.62]人生苦短别再留恋 [01:04.16]跟失败大声说拜拜 [01:07.67]要尽情哭得痛快 [01:13.77]地球仍然公转自转 [01:17.06]我的世界自己主宰 [01:27.43]快跳出来双脚腾空自在 [01:33.93]别躲起来爱就要说出来 [01:40.57]汗与泪模糊的现在 [01:43.71]不就是我们拥抱的未来 [01:50.51]要勇敢笑得痛快 [01:56.56]人生苦短别再留恋 [02:00.07]跟失败大声说拜拜 [02:03.63]要尽情哭得痛快 [02:09.69]地球仍然公转自转 [02:13.23]我的世界自己主宰 [02:16.85]要勇敢笑得痛快 [02:22.78]人生苦短别再留恋 [02:26.27]跟失败大声说拜拜 [02:29.89]要尽情哭得痛快 [02:36.08]地球仍然公转自转 [02:39.42]我的世界自己主宰'
+                    },
+                    {
+                        title:"青涩的时光-三班王强",
+                        author:"三班王强",
+                        url:'https://m10.music.126.net/20210809214008/94f9c41d2c83c368ddd9b19301beb481/ymusic/23bc/0a12/1405/81b6d45318f345c2b8cc7d0164d3465a.mp3',
+                        pic:"https://p3.music.126.net/yQJ5tHgK2vMbQ-E9CRPOSg==/109951163228123764.jpg",
+                        lrc:'[00:00.000] 作词 : 江林峰/阎凯\n' +
+                            '[00:01.000] 作曲 : 胡臻（koshin）\n' +
+                            '[00:09.15]时光流过教室门前\n' +
+                            '[00:13.09]故事留在黑板后面\n' +
+                            '[00:17.04]安静望着天\n' +
+                            '[00:19.61]夜空中是我们许过的愿\n' +
+                            '[00:25.12]耳机里还是那首歌\n' +
+                            '[00:29.07]青春永远不会褪色\n' +
+                            '[00:32.77]跟随记忆的风\n' +
+                            '[00:35.60]鲜艳那份年少时追过的梦\n' +
+                            '[00:39.49]将背包塞满了希望\n' +
+                            '[00:43.59]将未来紧握在手掌\n' +
+                            '[00:47.58]谁的歌声回荡在经过的走廊\n' +
+                            '[00:52.03]胡乱猜想\n' +
+                            '[00:57.33]青春太匆忙\n' +
+                            '[00:59.25]来不及欣赏\n' +
+                            '[01:01.32]昨天还在操场追逐着夕阳\n' +
+                            '[01:06.07]太多时间都用来幻想\n' +
+                            '[01:09.77]也难免轻狂兴风作浪\n' +
+                            '[01:13.31]向未来眺望\n' +
+                            '[01:15.28]有点滴感伤\n' +
+                            '[01:17.30]身边的人终将\n' +
+                            '[01:19.77]带着梦想陆续离场\n' +
+                            '[01:23.71]奔向远方\n' +
+                            '[01:25.49]留在记忆中央\n' +
+                            '[01:27.86]那段青涩的时光\n' +
+                            '[01:47.13]哼出声律的这首歌\n' +
+                            '[01:51.13]过往每幕悄悄定格\n' +
+                            '[01:54.86]对着窗外放空\n' +
+                            '[01:57.60]渲染这些长大后褪色懵懂\n' +
+                            '[02:01.65]任背包溢出着微光\n' +
+                            '[02:05.59]任时光指缝间流淌\n' +
+                            '[02:09.58]是你音语百转在脑海里绕梁\n' +
+                            '[02:14.19]忽然明朗\n' +
+                            '[02:17.52]时光虽匆忙\n' +
+                            '[02:19.29]不能皆感伤\n' +
+                            '[02:21.41]今日仍于当下笑迎着阳光\n' +
+                            '[02:26.01]时间太多才会去幻想\n' +
+                            '[02:29.96]为不枉时光肆意轻狂\n' +
+                            '[02:33.34]致过往回望\n' +
+                            '[02:35.31]拂泪离眼眶\n' +
+                            '[02:37.33]身边的人已将\n' +
+                            '[02:39.91]念想珍藏含笑退场\n' +
+                            '[02:43.90]各城相望\n' +
+                            '[02:45.62]微笑翻出心底\n' +
+                            '[02:47.84]那段青涩的时光\n' +
+                            '[02:55.62]是我们最美好的珍藏\n'
+                    },
+                    {
+                        title:"你曾是少年-S.H.E",
+                        author:"S.H.E",
+                        url:'https://mp3.9ku.com/new/2015/05-25/663957.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/99/56/4175598085.jpg",
+                        lrc:'[00:00.91]你曾是少年 (电影《少年班》主题曲) - S.H.E [00:04.18]词：肖洋 曲：杨子樸 [00:15.73]有些时候 [00:16.96]你怀念从前日子 [00:20.46]可天真离开时 [00:23.05]你却没说一个字 [00:26.73]你只是挥一挥手 [00:29.17]像扔掉废纸 [00:30.53]说是人生必经的事 [00:33.16]酒喝到七分 [00:35.27]却又感觉怅然若失 [00:40.06]镜子里面 像看到人生终点 [00:44.98]或许再过上几年 [00:47.54]你也有张虚伪的脸 [00:51.14]难道我们 是为了这样 [00:53.74]才来到这世上 [00:55.36]这问题来不及想 [00:57.69]每一天一年 总是匆匆忙忙 [01:03.87]你我来自湖北四川 [01:06.01]广西宁夏河南山东贵州 [01:07.49]云南的小镇乡村 [01:10.51]曾经发誓 要做了不起的人 [01:16.25]却在北京上海广州 [01:17.89]深圳某天夜半忽然醒来 [01:20.11]站在寂寞的阳台 [01:22.53]只想从这无边的寂寞 [01:25.14]中逃出来 [01:28.58]许多年前 [01:30.75]你有一双清澈的双眼 [01:34.65]奔跑起来 [01:36.77]像是一道春天的闪电 [01:41.25]想看遍这世界 [01:43.97]去最遥远的远方 [01:46.88]感觉有双翅膀 [01:50.05]能飞越高山和海洋 [01:53.41]许多年前 [01:55.32]你曾是个朴素的少年 [01:59.25]爱上一个人 [02:01.54]就不怕付出自己一生 [02:05.83]相信爱会永恒 [02:08.47]相信每个陌生人 [02:11.67]相信你会成为最想成为的人 [02:21.57]习惯说谎 就是变成熟了吗 [02:26.66]有一套房子之后 [02:29.10]才能去爱别人吗 [02:32.73]总是以为 成功之后 [02:35.11]就能抚平伤痕 [02:36.60]欲望边埋着 错过的人 [02:39.35]当青春耗尽 [02:41.52]只剩面目可憎 [02:45.75]你我来自湖北四川 [02:47.23]广西宁夏河南山东 [02:48.62]贵州云南的小镇乡村 [02:52.08]曾经发誓 要做了不起的人 [02:58.23]却在北京上海广州 [02:59.60]深圳某天夜半忽然醒来 [03:01.42]像被命运叫醒了 [03:04.29]它说你不能就这样过完一生 [03:10.12]许多年前 [03:12.34]你有一双清澈的双眼 [03:16.25]奔跑起来 [03:18.39]像是一道春天的闪电 [03:22.78]想看遍这世界 [03:25.36]去最遥远的远方 [03:28.56]感觉有双翅膀 [03:31.73]能飞越高山和海洋 [03:35.09]许多年前 [03:36.89]我曾是个朴素的少年 [03:40.74]爱上一个人 [03:43.08]就不怕付出自己一生 [03:47.29]相信爱会永恒 [03:50.05]相信每个陌生人 [03:53.20]当我和世界初相见 [03:58.15]当我曾经是少年'
+                    },
+                    {
+                        title:"重返十七岁",
+                        author:"鹿晗&大张伟&张丹峰&潘玮柏&刘敏涛&Ella",
+                        url:'https://other-player-rh01-sycdn.kuwo.cn/3fe845ea65f35aa2442e7c0ca8842291/61149609/resource/n1/38/56/392713047.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/32/60/42937456.jpg",
+                        lrc:'[00:00.00]重返十七岁- - Ella（陈嘉桦）&张丹峰&大张伟&魏晨& [00:00.50]潘玮柏&鹿晗&薛之谦&刘敏涛&张慧雯 [00:01.50](综艺《我去上学啦 第2季》节目主题曲) [00:02.50]作词 : 崔恕 [00:03.50]作曲 : 赵佳霖 [00:04.80]太阳当空照 [00:07.01]花儿对我笑 [00:09.22]小鸟说早早早 [00:11.62]你为什么背上小书包 [00:17.25]还记得上课铃声多清脆 [00:21.02]骑着单车迎着阳光多明媚 [00:24.78]还记得当时头发那么黑 [00:28.78]忽然被时间沾染了灰 [00:32.40]趁现在脚步飞扬不会累 [00:36.36]赶赴一场关于青春的约会 [00:40.13]没送出的信称谓写着谁 [00:43.98]字字句句刻在心扉 [00:47.15]当时死记硬背那些格言条规 [00:51.56]这么多年我终于学会 [00:55.19]第一次的干杯甜而苦的滋味 [00:59.21]现在想来仍然陶醉 [01:05.39]如果能重来一回 [01:08.74]插上翅膀你敢不敢高飞 [01:12.40]就算拥有曾经沧海的智慧 [01:16.37]我们还是新新人类 [01:20.67]如果能重返十七岁 [01:23.95]那些眼泪你敢不敢浪费 [01:27.66]直到经过人生历练的点缀 [01:31.82]才懂得纯真可贵 [01:35.97]123唱 [01:37.84]啦啦啦啦啦啦啦啦啦啦…… [01:46.86]还记得上课铃声多清脆 [01:50.66]骑着单车迎着阳光多明媚 [01:54.40]还记得当时头发那么黑 [01:58.42]忽然被时间沾染了灰 [02:02.05]趁现在脚步飞扬不会累 [02:06.02]赶赴一场关于青春的约会 [02:09.75]没送出的信称谓写着谁 [02:13.62]字字句句刻在心扉 [02:16.90]当时死记硬背 那些格言条规 [02:21.29]这么多年我终于学会 [02:24.85]第一次的干杯 甜而苦的滋味 [02:28.84]现在想来仍然陶醉 [02:35.04]如果能重来一回 [02:38.39]插上翅膀你敢不敢高飞 [02:42.04]就算拥有曾经沧海的智慧 [02:46.01]我们还是新新人类 [02:50.26]如果能重返十七岁 [02:53.64]那些眼泪你敢不敢浪费 [02:57.29]直到经过人生历练的点缀 [03:01.45]才懂得纯真可贵 [03:05.49]如果能重来一回 [03:08.88]插上翅膀你敢不敢高飞 [03:12.52]就算拥有曾经沧海的智慧 [03:16.50]我们还是新新人类 [03:20.84]如果能重返十七岁 [03:24.12]那些眼泪你敢不敢浪费 [03:27.80]直到经过人生历练的点缀 [03:31.98]才懂得纯真可贵 [03:35.56]我们的少年梦永远在心扉 [03:39.82]感知岁月的赞美 [03:50.40]太阳当空照 [03:52.40]花儿对我笑 [03:54.65]小鸟说早早早 [03:56.93]你为什么背上小书包'
+                    },
+                    {
+                        title:"昨日青空-《昨日青空》-尤长靖",
+                        author:"尤长靖",
+                        url:'http://sp.sycdn.kuwo.cn/0c21664c82ff57243110d4aae911c5d1/6113346f/resource/n1/37/91/3200298789.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/23/59/795451357.jpg",
+                        lrc:'[00:00.33]昨日青空-(电影《昨日青空》同名青春主题曲) - 尤长靖 [00:03.03]词 : 唐恬 [00:03.54]曲 : 钱雷 [00:04.09]编曲：钱雷 [00:04.74]制作人：钱雷 [00:05.58]贝斯: 李卓 [00:06.39]和音：李卓 [00:07.05]吉他：陈磊 [00:07.72]录音室：钱雷 [00:08.55]混音：周天澈 [00:09.39]录影棚：那英工作室 [00:13.84]忽然 一瞬间长大 [00:18.62]就像 被时间的手 擦模糊的画 [00:25.95]我们啊 各自要去哪 [00:31.30]问题好傻 谁又能 回答 [00:39.50]想念从 不说话 [00:44.49]来不及的再见 多喧哗 [00:51.85]陪我看大雨落下 [00:56.76]潮湿的心 滴滴答答 [01:00.09]带着温柔 又想起你啊 [01:07.17]我好想你 在起风的夜里 [01:10.24]我好想你 在人群的缝隙 [01:13.64]你听见吗 这一句喜欢你 [01:16.51]追得上你背影吗 [01:19.35]那些大喊过的名字 没完成的约定 [01:23.13]全都藏在心底 开出寂寞的花 [01:26.38]你好吗 为什么长大就要走散啊 [01:32.92]你现在在哪里 隔我多远距离 [01:36.22]是否勇敢飞行 有没有人爱你 [01:39.48]每当我想起你 世界突然安静 [01:42.75]你也一样吗 [01:45.57]青春有你出席 不是为了让你缺席 [01:49.36]好想沿着回忆 狂奔向你 昨日的青空 [01:55.11]随少年 挥手消失在 人海之中 [02:01.81]你在吗 你能听到吗 [02:07.91]我想你啊 [02:39.28]我好想你 在起风的夜里 [02:42.38]我好想你 在人群的缝隙 [02:45.66]你听见吗 这一句喜欢你 [02:48.62]追得上你背影吗 [02:51.36]那些大喊过的名字 没完成的约定 [02:55.10]全都藏在心底 开出寂寞的花 [02:58.50]你好吗 为什么长大就要走散啊 [03:04.97]你现在在哪里 隔我多远距离 [03:08.27]是否勇敢飞行 有没有人爱你 [03:11.58]每当我想起你 世界突然安静 [03:14.94]你也一样吗 [03:17.75]青春有你出席 不是为了让你缺席 [03:21.39]好想沿着回忆 狂奔向你 昨日的青空 [03:27.28]随少年 挥手消失在 人海之中 [03:33.84]你在吗 你要幸福啊 [03:40.02]我想你啊'
+                    },
+                    {
+                        title:"后会无期-汪苏泷&徐良",
+                        author:"汪苏泷&徐良",
+                        url:'https://mp32.9ku.com/upload/128/2021/03/11/1097737.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/2/5/549455667.jpg",
+                        lrc:'[00:00.00]后会无期 - 徐良&汪苏泷 [00:01.88]作词：徐良&汪苏泷 [00:02.79]作曲：徐良&汪苏泷 [00:12.57]你若离去后会无期 [00:15.33]你若离去后会无期 [00:18.14]你若离去后会无期 [00:24.84]等不到风中你的脸颊 [00:27.18]眼泪都美到很融洽 [00:30.36]等不到掩饰的雨落下 [00:32.82]我的眼泪被你觉察 [00:36.05]等不到你的雪月风花 [00:38.59]我们的爱也有时差 [00:41.82]等不到不经意的牵挂 [00:44.33]却没出息的放不下 [00:46.60]你说陪我到某年某月某天 [00:49.25]却把我丢在某日某夜某街 [00:52.65]错的并不是你而是全世界 [00:57.95]你带走我的思念 [01:01.35]却没说抱歉 [01:03.75]一起走过的黑夜 [01:07.11]变一地白雪 [01:09.69]我把记忆都翻遍 [01:12.98]却没有发现 [01:15.33]我们约好的明天 [01:18.59]你留给昨天 [01:33.41]你若离去后会无期 [01:45.37]等不到手中松开的沙 [01:47.72]被风扬起的很优雅 [01:50.86]等不到送你蝴蝶发卡 [01:53.42]你的他爱上了短发 [01:55.81]你说陪我到某年某月某天 [01:58.44]却把我丢在某日某夜某街 [02:01.82]错的并不是你而是全世界 [02:07.13]你带走我的思念 [02:10.48]却没说抱歉 [02:12.95]一起走过的黑夜 [02:16.24]变一地白雪 [02:18.68]我把记忆都翻遍 [02:21.97]却没有发现 [02:24.48]我们约好的明天 [02:27.71]你留给昨天 [02:44.59]你带走我的思念 [02:47.82]却没说抱歉 [02:50.24]一起走过的黑夜 [02:53.62]变一地白雪 [02:56.01]我把记忆都翻遍 [02:59.30]却没有发现 [03:01.84]我们约好的明天 [03:05.06]你留给昨天 [03:09.40]我们约好的明天 [03:14.12]你留给昨天'
+                    },
+                    {
+                        title:"坏女孩 - 徐良&小凌",
+                        author:"徐良&小凌",
+                        url:'https://wsaudiobssdlbig.yun.kugou.com/202108121128/d3c763d03a61dda0e926b8bc557e8028/bss/extname/wsaudio/0e4d0a7691531918ba9dac1ed6f52428.mp3',
+                        pic:"https://img1.kuwo.cn/star/albumcover/500/99/72/3993253407.jpg",
+                        lrc:'[00:00.86]坏女孩 - 徐良&小凌 [00:21.73]那时我放开了的手 [00:23.47]转过身只剩了保重 [00:25.31]你话都没说 却哭了很久很久 [00:29.06]我喜欢坏坏的女友 [00:30.96]我喜欢刺激的感受 [00:32.79]你单纯太过 多余了那些温柔 [00:36.60]你消失在无名大街 [00:38.51]从此就没有再见面 [00:40.42]好长的时间 再没有你的来电 [00:44.15]在后来酒吧的房间 [00:46.17]舞池里跳动着音乐 [00:48.06]熟悉的侧脸 喂 [00:50.87]迷人的笑脸 吸引视线 [00:54.33]慵懒的靠在陌生的肩 [00:58.14]黑色的眼线 你的指间 [01:01.67]有一点轻蔑 [01:05.67]在谁的怀中会有感觉 [01:09.38]被爱的深夜我在想念 [01:13.23]明明是为你才会改变 [01:16.80]却回不到从前 [01:52.21]那时我放开了的手 [01:54.16]转过身只剩了保重 [01:56.03]你话都没说 却哭了很久很久 [01:59.72]我喜欢坏坏的女友 [02:01.70]我喜欢刺激的感受 [02:03.58]你单纯太过 多余了那些温柔 [02:07.23]你消失在无名大街 [02:09.23]从此就没有再见面 [02:11.14]好长的时间 再没有你的来电 [02:14.84]在后来酒吧的房间 [02:16.92]舞池里跳动着音乐 [02:18.63]熟悉的侧脸 喂 [02:21.56]迷人的笑脸 吸引视线 [02:25.03]慵懒的靠在陌生的肩 [02:28.75]黑色的眼线 你的指间 [02:32.34]有一点轻蔑 [02:36.33]在谁的怀中会有感觉 [02:40.09]被爱的深夜我在想念 [02:43.91]明明是为你才会改变 [02:47.46]却回不到从前 [02:52.78]然后我安静的发现 [02:55.92]两个人已经没有任何语言 [03:00.14]曾经你纯真的永远 [03:03.21]让我不顾一切开始怀念 [03:06.91]迷人的笑脸 吸引视线 [03:10.45]慵懒的靠在陌生的肩 [03:14.21]黑色的眼线 你的指间 [03:17.73]有一点轻蔑 [03:21.74]在谁的怀中会有感觉 [03:25.53]被爱的深夜我在想念 [03:29.23]明明是为你才会改变 [03:32.83]却回不到从前'
+                    },
+	 {
+                        title:"",
+                        author:"",
+                        url:'',
+                        pic:"",
+                        lrc:''
+                    },
+
+
+                ]
+            });
+            ap.init();
+        </script>
+
+    </body>
+</html>
